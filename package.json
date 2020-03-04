@@ -1,0 +1,19 @@
+{
+  "name": "project_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewjknapp/Project_2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewjknapp/Project_2/issues"
+  },
+  "homepage": "https://github.com/andrewjknapp/Project_2#readme"
+}
