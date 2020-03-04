@@ -1,0 +1,22 @@
+body {
+    background-image: url("../assets/theater.jpg");
+    background-position: bottom;
+    background-size: cover;
+    background-color: #cccccc;
+   }
+
+h1 {
+    font-size: 36px;
+    color: rgb(205, 162, 54);
+    text-align: center;
+}
+
+#search-result {
+    text-align: center;
+    font-size: 24px;
+    color: lemonchiffon;
+}
+
+.container {
+    margin-top: 80px;
+}

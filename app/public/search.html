@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link 
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" />
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./css/materialize.css"
+      media="screen,projection" />
+
+    <link rel="stylesheet" type="text/css" href="./css/semantic.css" />
+    <link type="text/css" rel="stylesheet" href="./css/search.css" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <!-- This is the nav bar. It will turn white when clicked and be an input field for the movie search -->
+    <nav>
+      <div class="nav-wrapper red darken-4">
+        <form>
+          <div class="input-field">
+            <input id="search" type="search" required />
+            <label class="label-icon" for="search">
+              <i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1>Search for a Movie</h1>
+      <div id="search-result">
+        {{Movie Title}}
+      </div>
+    </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="./js/materialize.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="./js/semantic.js"></script>
+  </body>
+</html>
