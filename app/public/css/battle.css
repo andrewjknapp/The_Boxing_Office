@@ -63,16 +63,35 @@
         transform: translateY(10px);
     }
 
+    30% {
+        transform: rotate(1deg);
+    }
+
+    40% {
+        transform: rotate(-1deg);
+    }
+
+    60% {
+        transform: rotate(0deg);
+    }
+
     80% {
         transform: scale(1.05);
     }
+
     90% {
         transform: scale(1);
     }
 }
 
-#movie1 {
+@keyframes attack {
+    50% {
+        transform: translateX(100px);
+    }
+}
 
+#movie1 {
+    animation-duration: 2s;
     left: 20%;
 }
 
