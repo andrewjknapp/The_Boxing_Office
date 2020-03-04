@@ -3,14 +3,107 @@
     padding: 0;
 }
 
-body {
+/* body {
     background-color: black;
-}
+} */
 
 #background {
     background-image: url(../assets/theater.jpg);
+    background-position: bottom;
     background-size: cover;
     background-color: blanchedalmond;
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
+}
+
+#fight-header {
+    background-color: crimson;
+    color: white;
+    text-align: center;
+
+}
+
+.fighter {
+    height: 300px;
+    width: 40%;
+    max-width: 200px;
+    position: fixed;
+    top: 10%;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    animation: bounce;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transform: translateY(0);
+}
+.fighter:hover {
+    animation: shakeanimation;
+    animation-duration: 1s;
+    transform: rotate(0deg);
+  }
+  @keyframes shakeanimation {
+    15%, 85% {
+      transform: rotate(5deg);
+    }
+    
+    25%, 75% {
+      transform: rotate(-5deg);
+    }
+    30%, 50%, 70% {
+      transform: rotate(2deg);
+    }
+    40%, 60% {
+      transform: rotate(-2deg);
+    }
+  }
+
+@keyframes bounce {
+    25% {
+        transform: translateY(10px);
+    }
+
+    80% {
+        transform: scale(1.05);
+    }
+    90% {
+        transform: scale(1);
+    }
+}
+
+#movie1 {
+
+    left: 20%;
+}
+
+#movie2 {
+    right: 20%;
+}
+
+#fight-bet h2 {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    background-color: rgb(156, 156, 156);
+    color: white;
+    width: 150px;
+    margin-left: -95px;
+    padding: 20px;
+
+}
+
+#fight-bet h2:hover {
+    transform: scale(1.3);
+}
+
+
+@media only screen and (max-width: 900px) {
+
+    #movie1 {
+        left: 5%;
+    }
+
+    #movie2 {
+        right: 5%;
+    }
 }
