@@ -64,11 +64,15 @@ $('#fight-bet').on('click', function(event) {
 
 $('#ready-check').on('click', async function(event) {
     $('#start-modal').addClass('hide');
-    let one = $('fighter1-prep').attr('imdbid');
-    fighter1 = await generateMovieListing(one).then(function() {
-        $('#movie1').css('background-image', `url(${fighter1.Poster})`)
+    let one = $('#fighter1-prep').attr('imdbid');
+    let two = $('#fighter2-prep').attr('imdbid');
+    
+    fighter1 = await generateMovieListing(one);
+    $('#movie1').css('background-image', `url(${fighter1.Poster})`);
 
-    });
+    fighter2 = await generateMovieListing(two);
+    $('#movie2').css('background-image', `url(${fighter2.Poster})`);
+
     $('#main-battle').removeClass('hide');
 })
 
