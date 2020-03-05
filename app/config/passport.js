@@ -76,7 +76,7 @@ passport.deserializeUser(function (obj, cb) {
 //route for logging in 
 app.post('/login',
   passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/watchlist.html',
     failureRedirect: '/login',
     failureFlash: true
   })
