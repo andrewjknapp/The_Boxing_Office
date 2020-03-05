@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-const fighter1 = {
+let fighter1 = {
     Title: "Blade Runner 2049",
     Metascore: "99",
     imdbVotes: "412,480",
@@ -8,7 +8,7 @@ const fighter1 = {
     BoxOffice: "$91,800,042"
 }
 
-const fighter2 = {
+let fighter2 = {
     Title: "The Lord of the Rings: The Fellowship of the Ring",
     Metascore: "92",
     imdbVotes: "1,568,706",
@@ -59,7 +59,20 @@ function decider(movie1, movie2) {
 }
 let round = 1;
 $('#fight-bet').on('click', function(event) {
-    
+    startBattle();
+});
+
+$('#ready-check').on('click', async function(event) {
+    $('#start-modal').addClass('hide');
+    let one = $('fighter1-prep').attr('imdbid');
+    fighter1 = await generateMovieListing(one).then(function() {
+        $('#movie1').css('background-image', `url(${fighter1.Poster})`)
+
+    });
+    $('#main-battle').removeClass('hide');
+})
+
+function startBattle() {
     if (round <= 3) {
 
         roundDeclaration(round);
@@ -76,7 +89,7 @@ $('#fight-bet').on('click', function(event) {
         }
         round++;
     } 
-})
+}
 
 function roundDeclaration(num) {
     let rounds = ['Critic Rating', 'imdb Votes', 'Box Office'];
@@ -256,10 +269,12 @@ function fillFighter(ajaxResonse) {
     if(fightNum === 0) {
         $('#fighter1-prep').empty();
         $('#fighter1-prep').css('background-image', `url(${ajaxResonse.Poster})`);
+        $('#fighter1-prep').attr('imdbid', `${ajaxResonse.imdbID}`);
         fightNum++;
     } else if (fightNum === 1) {
         $('#fighter2-prep').empty();
         $('#fighter2-prep').css('background-image', `url(${ajaxResonse.Poster})`);
+        $('#fighter2-prep').attr('imdbid', `${ajaxResonse.imdbID}`);
     }
 }
 

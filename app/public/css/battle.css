@@ -27,7 +27,9 @@
     width: 90%;
     height: 90%;
     margin: 0 auto;
-    background-color: rgb(22, 22, 22);
+    background-image: url('../assets/basement.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .fighterPrep {
@@ -65,18 +67,21 @@
     width: 80%;
     height: 50%;
     margin: 0 auto;
-    background-color: tomato;
     text-align: center;
 }
 
-#fighter-search h4{
-    margin: 5px;
+#fighter-search h4,
+#fighter-search h3{
+    margin: 5px auto;
+    width: fit-content;
+    color: white;
+    background-color: rgba(119, 119, 119, 0.726);
 }
 
 #watchlist {
     height: 50%;
     width: 80%;
-    background-color: turquoise;
+    background-color: rgba(119, 119, 119, 0.726);
     margin: 5px auto;
     padding: 5px;
     overflow: auto;
@@ -101,6 +106,13 @@
 
 .movie_watchlist:hover {
     transform: scale(1.05);
+}
+
+#ready-check {
+    position: fixed;
+    background-color: royalblue;
+    top: 0;
+    cursor: pointer;
 }
 
 .hide {
