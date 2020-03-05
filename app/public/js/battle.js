@@ -190,19 +190,26 @@ function roundWinner(num1, num2) {
 const watchlist = [
     {
         userID: 3,
-        movieID: "tt0120737"
+        imdbID: "tt6751668",
+        Poster: "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg"
     },
     {
         userID: 3,
-        movieID: "tt0120733"
+        imdbID: "tt1612774",
+        Poster: "https://m.media-amazon.com/images/M/MV5BMTU2Nzg2NDQ2Nl5BMl5BanBnXkFtZTcwMDk5MjMzNA@@._V1_SX300.jpg"
     }
 ]
 
 function populateWatchlist(watchlist) {
+    $('#watchlist').html("")
     for(let i = 0; i < watchlist.length; i++) {
         let currentMovie = 
         `
-        <div>
-        </div>`
+        <div class="movie_watchlist" 
+        imdbID=${watchlist[0].imdbID}
+        style="background-image: url('${watchllist[0].imdbID}');"></div>
+
+        `;
+        $('#watchlist').append(currentMovie);
     }
 }

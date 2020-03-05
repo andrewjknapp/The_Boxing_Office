@@ -76,13 +76,29 @@
     width: 80%;
     background-color: turquoise;
     margin: 5px auto;
+    padding: 5px;
+    overflow: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+}
+
+#watchlist::-webkit-scrollbar {
+    display: none;
 }
 
 .movie_watchlist {
+    display: inline-block;
     height: 90%;
-    width: 50px;
+    width: 80px;
     margin: 5px;
     background-color: yellow;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+.movie_watchlist:hover {
+    transform: scale(1.05);
 }
 
 .hide {
