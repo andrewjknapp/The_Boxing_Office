@@ -1,3 +1,5 @@
+let express = require('express');
+let app = express();
 let passport = require("passport");
 let LocalStrategy = require("passport-local").Strategy;
 
