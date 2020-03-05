@@ -16,6 +16,51 @@
     height: 100vh;
 }
 
+.modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(119, 119, 119, 0.726);
+}
+
+#battle-prep {
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    background-color: rgb(22, 22, 22);
+}
+
+.fighterPrep {
+    position: fixed;
+    margin: 5px;
+    height: 200px;
+    width: 130px;
+    background-color: gray;
+}
+
+.fighterPrep p {
+    transform: rotate(30deg);
+    position: relative;
+    top: 80px;
+    left: 26px;
+    font-size: 1.2em;
+    color: white;
+}
+
+#fighter1-prep {
+    top: 7%;
+    left: 25%;
+}
+
+#fighter2-prep {
+    top: 7%;
+    right: 25%;
+}
+
+.hide {
+    display: none;
+}
+
 #fight-header {
     background-color: crimson;
     color: white;
@@ -220,5 +265,15 @@ opacity: 0;
 
     #movie2 {
         right: 5%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #fighter1-prep {
+        left: 7%;
+    }
+
+    #fighter2-prep {
+        right: 7%;
     }
 }

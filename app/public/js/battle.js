@@ -50,8 +50,6 @@ function decider(movie1, movie2) {
     let S1 = Rweight*(R1/Rtot) + Pweight*(P1/Ptot) + Boweight*(Bo1/Botot);
     let S2 = Rweight*(R2/Rtot) + Pweight*(P2/Ptot) + Boweight*(Bo2/Botot);
 
-    console.log(S1);
-    console.log(S2);
     if(S1 > S2) {
         return 1;
     } else {
