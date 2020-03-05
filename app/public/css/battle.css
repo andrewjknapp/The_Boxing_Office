@@ -36,6 +36,8 @@
     height: 200px;
     width: 130px;
     background-color: gray;
+    background-size: cover;
+    background-position: center;
 }
 
 .fighterPrep p {

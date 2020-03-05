@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 const fighter1 = {
     Title: "Blade Runner 2049",
     Metascore: "99",
@@ -28,7 +30,6 @@ function numberify(string) {
 
 function decider(movie1, movie2) {
     //R = Rating
-    console.log(movie1);
     let R1 = numberify(movie1.Metascore);
     let R2 = numberify(movie2.Metascore);
     let Rtot = numberify(movie1.Metascore) + numberify(movie2.Metascore);
@@ -58,8 +59,7 @@ function decider(movie1, movie2) {
 }
 let round = 1;
 $('#fight-bet').on('click', function(event) {
-    //console.log('Clicked');
-    console.log(round);
+    
     if (round <= 3) {
 
         roundDeclaration(round);
@@ -225,14 +225,114 @@ function populateWatchlist(watchlist) {
     for(let i = 0; i < watchlist.length; i++) {
         let currentMovie = 
         `
-        <div class="movie_watchlist" 
-        imdbID=${watchlist[i].imdbID}
-        style="background-image: url('${watchlist[i].Poster}');"></div>
+        <article class="movie_watchlist" 
+        imdbid=${watchlist[i].imdbID}
+        style="background-image: url('${watchlist[i].Poster}');">
+        </article>
 
         `;
-        console.log(currentMovie);
+        
         $('#watchlist').append(currentMovie);
     }
 }
 
 populateWatchlist(watchlist1);
+
+$('#searchBtn').on('click', async function(event) {
+    let search = $('#searchText').val();
+    let data = await movieSearch(search);
+    fillFighter(data);
+})
+
+$('#watchlist').on('click', async function(event) {
+    if(event.target.matches('article')) {
+        let data = await generateMovieListing(event.target.getAttribute('imdbid'));
+        fillFighter(data);
+    }
+})
+
+let fightNum = 0;
+function fillFighter(ajaxResonse) {
+    if(fightNum === 0) {
+        $('#fighter1-prep').empty();
+        $('#fighter1-prep').css('background-image', `url(${ajaxResonse.Poster})`);
+        fightNum++;
+    } else if (fightNum === 1) {
+        $('#fighter2-prep').empty();
+        $('#fighter2-prep').css('background-image', `url(${ajaxResonse.Poster})`);
+    }
+}
+
+function movieSearch(searchString) {
+    let queryURL = `http://omdbapi.com/?apikey=trilogy&t=${searchString}`;
+
+    return new Promise((resolve, reject) => {
+        $.ajax({
+        url: queryURL
+        }).then(function(response) {
+        if (response !== null) {
+            let movie = response;
+            let title = movie.Title;
+            let year = movie.Year;
+            let runtime = movie.Runtime;
+            let director = movie.Director;
+
+            let searchResp = {
+                Title: title,
+                Year: year,
+                Director: director,
+                Runtime: runtime,
+                Metascore: movie.Metascore,
+                imdbVotes: movie.imdbVotes,
+                imdbID: movie.imdbID,
+                Poster: movie.Poster,
+                BoxOffice: movie.BoxOffice,
+                Plot: movie.Plot,
+                Awards: movie.Awards,
+                Actors: movie.Actors,
+                Genre: movie.Genre               
+            }
+            
+            resolve(searchResp);
+        }
+        })
+    })
+}
+function generateMovieListing(imdbID) {
+    let queryURL = `http://omdbapi.com/?apikey=trilogy&i=${imdbID}`;
+
+    return new Promise((resolve, reject) => {
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(resp) {
+        let movie = resp;
+
+        let title = movie.Title;
+        let year = movie.Year;
+        let runtime = movie.Runtime;
+        let director = movie.Director;
+
+        let searchResp = {
+            Title: title,
+            Year: year,
+            Director: director,
+            Runtime: runtime,
+            Metascore: movie.Metascore,
+            imdbVotes: movie.imdbVotes,
+            imdbID: movie.imdbID,
+            Poster: movie.Poster,
+            BoxOffice: movie.BoxOffice,
+            Plot: movie.Plot,
+            Awards: movie.Awards,
+            Actors: movie.Actors,
+            Genre: movie.Genre               
+        }
+        resolve(searchResp);
+
+      })
+    })
+}
+
+});
