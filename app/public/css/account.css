@@ -1,0 +1,78 @@
+#background {
+    background-image: url(../assets/theater.jpg);
+    background-size: cover;
+    background-color: blanchedalmond;
+    height: 100vh;
+    width: 100vw;
+}
+
+h1 {
+    font-size: 36px;
+    color: rgb(205, 162, 54);
+    text-align: center;
+}
+
+h5 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+h6 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+#watchlist {
+    box-sizing: border-box;
+    margin: 80px auto;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.poster-container {
+    margin: 10px;
+  /* position: absolute;
+  top: 100px;
+  left: 100px; */
+  perspective: 1000;
+  -webkit-perspective: 1000;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  /* margin-top: -40%;
+  margin-left: -30% */
+}
+
+.poster {
+  height: 114px;
+  width: 80px;
+  background-image: url('http://placehold.it/558x793/000/000.png');
+  background-repeat: no-repeat;
+  transform-style: preserve-3d;
+  border-radius: 3px;
+  border: 3px solid #000000
+}
+
+.poster:hover {
+  cursor: pointer
+}
+
+.poster:after {
+  opacity: 0;
+  content: radial-gradient(top, 100% 75%, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.00) 150%);
+  width: 558px;
+  height: 793px;
+  transition: all 1s
+}
+
+.poster:hover:after {
+  opacity: 1
+}
