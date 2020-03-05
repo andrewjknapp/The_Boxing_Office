@@ -185,3 +185,54 @@ function attack() {
 function roundWinner(num1, num2) {
     return numberify(num1) > numberify(num2) ? 1 : 2;
 }
+
+
+const watchlist1 = [
+    {
+        userID: 3,
+        imdbID: "tt6751668",
+        Poster: "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg"
+    },
+    {
+        userID: 3,
+        imdbID: "tt1612774",
+        Poster: "https://m.media-amazon.com/images/M/MV5BMTU2Nzg2NDQ2Nl5BMl5BanBnXkFtZTcwMDk5MjMzNA@@._V1_SX300.jpg"
+    },
+    {
+        userID: 3,
+        imdbID: "tt0133093",
+        Poster: "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
+    },
+    {
+        userID: 3,
+        imdbID: "tt1856101",
+        Poster: "https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg"
+    },
+    {
+        userID: 3,
+        imdbID: "tt0120737",
+        Poster: "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg"
+    },
+    {
+        userID: 3,
+        imdbID: "tt5580390",
+        Poster: "https://m.media-amazon.com/images/M/MV5BNGNiNWQ5M2MtNGI0OC00MDA2LWI5NzEtMmZiYjVjMDEyOWYzXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
+    }
+]
+
+function populateWatchlist(watchlist) {
+    $('#watchlist').html("")
+    for(let i = 0; i < watchlist.length; i++) {
+        let currentMovie = 
+        `
+        <div class="movie_watchlist" 
+        imdbID=${watchlist[i].imdbID}
+        style="background-image: url('${watchlist[i].Poster}');"></div>
+
+        `;
+        console.log(currentMovie);
+        $('#watchlist').append(currentMovie);
+    }
+}
+
+populateWatchlist(watchlist1);

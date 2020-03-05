@@ -57,6 +57,50 @@
     right: 25%;
 }
 
+#fighter-search {
+    position: relative;
+    top: 45%;
+    width: 80%;
+    height: 50%;
+    margin: 0 auto;
+    background-color: tomato;
+    text-align: center;
+}
+
+#fighter-search h4{
+    margin: 5px;
+}
+
+#watchlist {
+    height: 50%;
+    width: 80%;
+    background-color: turquoise;
+    margin: 5px auto;
+    padding: 5px;
+    overflow: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+}
+
+#watchlist::-webkit-scrollbar {
+    display: none;
+}
+
+.movie_watchlist {
+    display: inline-block;
+    height: 90%;
+    width: 80px;
+    margin: 5px;
+    background-color: yellow;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+.movie_watchlist:hover {
+    transform: scale(1.05);
+}
+
 .hide {
     display: none;
 }
