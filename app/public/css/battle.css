@@ -58,7 +58,24 @@
 }
 
 #fighter-search {
-    
+    position: relative;
+    top: 45%;
+    width: 80%;
+    height: 50%;
+    margin: 0 auto;
+    background-color: tomato;
+    text-align: center;
+}
+
+#fighter-search h4{
+    margin: 5px;
+}
+
+#watchlist {
+    height: 50%;
+    width: 80%;
+    background-color: turquoise;
+    margin: 5px auto;
 }
 
 .hide {

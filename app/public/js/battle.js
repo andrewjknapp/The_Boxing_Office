@@ -185,3 +185,24 @@ function attack() {
 function roundWinner(num1, num2) {
     return numberify(num1) > numberify(num2) ? 1 : 2;
 }
+
+
+const watchlist = [
+    {
+        userID: 3,
+        movieID: "tt0120737"
+    },
+    {
+        userID: 3,
+        movieID: "tt0120733"
+    }
+]
+
+function populateWatchlist(watchlist) {
+    for(let i = 0; i < watchlist.length; i++) {
+        let currentMovie = 
+        `
+        <div>
+        </div>`
+    }
+}
