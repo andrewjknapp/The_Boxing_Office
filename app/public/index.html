@@ -1,13 +1,30 @@
-<form action="/login" method="post">
-    <div>
-        <label>Username:</label>
-        <input type="text" name="username"/>
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password"/>
-    </div>
-    <div>
-        <input type="submit" value="Log In"/>
-    </div>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- placeholder title -->
+    <title>The Boxing Office</title>
+</head>
+
+<body>
+    <div id="background">
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            <div class='login'>
+                <label>Username:</label>
+                <input type="text" name="username" />
+            </div>
+            <div class='login'>
+                <label>Password:</label>
+                <input type="password" name="password" />
+            </div>
+            <div>
+                <input type="submit" value="Log In" />
+            </div>
+        </form>
+</body>
