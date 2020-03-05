@@ -4,7 +4,7 @@ let passport = require("passport");
 let LocalStrategy = require("passport-local").Strategy;
 
 let db = require("../models"); 
-assport.use(new LocalStrategy(function (username, password, done) {
+passport.use(new LocalStrategy(function (username, password, done) {
 
   User.findOne({ username: username }, function (err, user) {
 
@@ -76,7 +76,7 @@ passport.deserializeUser(function (obj, cb) {
 //route for logging in 
 app.post('/login',
   passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/watchlist.html',
     failureRedirect: '/login',
     failureFlash: true
   })
