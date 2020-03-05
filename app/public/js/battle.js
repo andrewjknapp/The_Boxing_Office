@@ -1,4 +1,6 @@
-const fighter1 = {
+$(document).ready(function() {
+
+let fighter1 = {
     Title: "Blade Runner 2049",
     Metascore: "99",
     imdbVotes: "412,480",
@@ -6,7 +8,7 @@ const fighter1 = {
     BoxOffice: "$91,800,042"
 }
 
-const fighter2 = {
+let fighter2 = {
     Title: "The Lord of the Rings: The Fellowship of the Ring",
     Metascore: "92",
     imdbVotes: "1,568,706",
@@ -28,7 +30,6 @@ function numberify(string) {
 
 function decider(movie1, movie2) {
     //R = Rating
-    console.log(movie1);
     let R1 = numberify(movie1.Metascore);
     let R2 = numberify(movie2.Metascore);
     let Rtot = numberify(movie1.Metascore) + numberify(movie2.Metascore);
@@ -58,8 +59,24 @@ function decider(movie1, movie2) {
 }
 let round = 1;
 $('#fight-bet').on('click', function(event) {
-    //console.log('Clicked');
-    console.log(round);
+    startBattle();
+});
+
+$('#ready-check').on('click', async function(event) {
+    $('#start-modal').addClass('hide');
+    let one = $('#fighter1-prep').attr('imdbid');
+    let two = $('#fighter2-prep').attr('imdbid');
+    
+    fighter1 = await generateMovieListing(one);
+    $('#movie1').css('background-image', `url(${fighter1.Poster})`);
+
+    fighter2 = await generateMovieListing(two);
+    $('#movie2').css('background-image', `url(${fighter2.Poster})`);
+
+    $('#main-battle').removeClass('hide');
+})
+
+function startBattle() {
     if (round <= 3) {
 
         roundDeclaration(round);
@@ -76,7 +93,7 @@ $('#fight-bet').on('click', function(event) {
         }
         round++;
     } 
-})
+}
 
 function roundDeclaration(num) {
     let rounds = ['Critic Rating', 'imdb Votes', 'Box Office'];
@@ -225,14 +242,116 @@ function populateWatchlist(watchlist) {
     for(let i = 0; i < watchlist.length; i++) {
         let currentMovie = 
         `
-        <div class="movie_watchlist" 
-        imdbID=${watchlist[i].imdbID}
-        style="background-image: url('${watchlist[i].Poster}');"></div>
+        <article class="movie_watchlist" 
+        imdbid=${watchlist[i].imdbID}
+        style="background-image: url('${watchlist[i].Poster}');">
+        </article>
 
         `;
-        console.log(currentMovie);
+        
         $('#watchlist').append(currentMovie);
     }
 }
 
 populateWatchlist(watchlist1);
+
+$('#searchBtn').on('click', async function(event) {
+    let search = $('#searchText').val();
+    let data = await movieSearch(search);
+    fillFighter(data);
+})
+
+$('#watchlist').on('click', async function(event) {
+    if(event.target.matches('article')) {
+        let data = await generateMovieListing(event.target.getAttribute('imdbid'));
+        fillFighter(data);
+    }
+})
+
+let fightNum = 0;
+function fillFighter(ajaxResonse) {
+    if(fightNum === 0) {
+        $('#fighter1-prep').empty();
+        $('#fighter1-prep').css('background-image', `url(${ajaxResonse.Poster})`);
+        $('#fighter1-prep').attr('imdbid', `${ajaxResonse.imdbID}`);
+        fightNum++;
+    } else if (fightNum === 1) {
+        $('#fighter2-prep').empty();
+        $('#fighter2-prep').css('background-image', `url(${ajaxResonse.Poster})`);
+        $('#fighter2-prep').attr('imdbid', `${ajaxResonse.imdbID}`);
+    }
+}
+
+function movieSearch(searchString) {
+    let queryURL = `http://omdbapi.com/?apikey=trilogy&t=${searchString}`;
+
+    return new Promise((resolve, reject) => {
+        $.ajax({
+        url: queryURL
+        }).then(function(response) {
+        if (response !== null) {
+            let movie = response;
+            let title = movie.Title;
+            let year = movie.Year;
+            let runtime = movie.Runtime;
+            let director = movie.Director;
+
+            let searchResp = {
+                Title: title,
+                Year: year,
+                Director: director,
+                Runtime: runtime,
+                Metascore: movie.Metascore,
+                imdbVotes: movie.imdbVotes,
+                imdbID: movie.imdbID,
+                Poster: movie.Poster,
+                BoxOffice: movie.BoxOffice,
+                Plot: movie.Plot,
+                Awards: movie.Awards,
+                Actors: movie.Actors,
+                Genre: movie.Genre               
+            }
+            
+            resolve(searchResp);
+        }
+        })
+    })
+}
+function generateMovieListing(imdbID) {
+    let queryURL = `http://omdbapi.com/?apikey=trilogy&i=${imdbID}`;
+
+    return new Promise((resolve, reject) => {
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(resp) {
+        let movie = resp;
+
+        let title = movie.Title;
+        let year = movie.Year;
+        let runtime = movie.Runtime;
+        let director = movie.Director;
+
+        let searchResp = {
+            Title: title,
+            Year: year,
+            Director: director,
+            Runtime: runtime,
+            Metascore: movie.Metascore,
+            imdbVotes: movie.imdbVotes,
+            imdbID: movie.imdbID,
+            Poster: movie.Poster,
+            BoxOffice: movie.BoxOffice,
+            Plot: movie.Plot,
+            Awards: movie.Awards,
+            Actors: movie.Actors,
+            Genre: movie.Genre               
+        }
+        resolve(searchResp);
+
+      })
+    })
+}
+
+});
