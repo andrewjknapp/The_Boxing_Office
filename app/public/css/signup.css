@@ -27,25 +27,17 @@ h1 {
     padding: 20px;
 }
 .buttons {
-   display: flex;
-   flex-direction: row;
-   float: left;
-   margin-left: 20px;
-   background-image: linear-gradient(#59123A, #F48CCA);
-   box-shadow: 5px 10px #DFD2C5;
-   border-radius: 25px;
-   color: antiquewhite;
-   font-family: 'Rambla', sans-serif;
-   padding: 15px 32px;
-   font-size: 16px;
-   margin: 4px 2px;
-   cursor: pointer;
-}
-p {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    margin-left: 20px;
+    background-image: linear-gradient(#59123A, #F48CCA);
+    box-shadow: 5px 10px #DFD2C5;
+    border-radius: 25px;
     color: antiquewhite;
     font-family: 'Rambla', sans-serif;
-    display: flex;
-    align-items: flex-end;
-    margin-top: 32%;
-    margin-left: 550px;
-}
+    padding: 15px 32px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+ }
