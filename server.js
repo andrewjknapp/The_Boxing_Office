@@ -5,6 +5,8 @@
 // *** Dependencies
 // =============================================================
 let express = require("express");
+var passport = require("./app/config/passport");
+var session = require("express-session");
 
 // Sets up the Express App
 // =============================================================
@@ -17,9 +19,14 @@ let db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 // Static directory
 app.use(express.static("app/public"));
+
+
+
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // // Routes
 // // =============================================================
