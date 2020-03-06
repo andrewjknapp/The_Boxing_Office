@@ -18,8 +18,12 @@ let db = require("./models");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(function(req,res,next){
+  console.log(req.url);
+  next();
+})
 // Static directory
-app.use(express.static("public"));
+app.use(express.static("app/public"));
 
 // // Routes
 // // =============================================================
