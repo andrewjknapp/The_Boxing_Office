@@ -7,20 +7,25 @@ function displayMovieInfo() {
     method: "GET"
   }).then(function(response) {
     console.log(response);
-    var movieDiv = $("<div class='movie'>");
-    var rating = response.Rated;
-    var pOne = $("<p>").text("Rating: " + rating);
-    movieDiv.append(pOne);
-    var released = response.Released;
-    var pTwo = $("<p>").text("Released: " + released);
-    movieDiv.append(pTwo);
-    var plot = response.Plot;
-    var pThree = $("<p>").text("Plot: " + plot);
-    movieDiv.append(pThree);
+    var watchListDiv = $("<div id='watchlist'>");
+    watchListDiv.append(
+      `<li>
+        <div class="collapsible-header orange accent-1">
+          <div class="poster-container">
+            <div class="poster" style="background-image: url('${response.Poster}');"></div>
+          </div>
+          <div>
+            <h5>${response.Title} (${response.Year})</h5>
+            <h6>Director: ${response.Director}</h6>
+            <h6>Actors: ${response.Actors}</h6>
+            <p>${response.Plot}</p>
+          </div>
+        </div>
+        </li>`);
+    var posterDiv = $("<div class='poster-container'>");
     var imgURL = response.Poster;
-    var image = $("<img>").attr("src", imgURL);
-    movieDiv.append(image);
-    $("#movies-view").prepend(movieDiv);
+    var image = $("<img class='poster'>").attr("src", imgURL);
+    posterDiv.append(image);
   });
 }
 
@@ -47,5 +52,3 @@ $("#add-movie").on("click", function(event) {
 $(document).on("click", ".movie-btn", displayMovieInfo);
 
 renderButtons();
-
-displayMovieInfo("The Shape of Water");

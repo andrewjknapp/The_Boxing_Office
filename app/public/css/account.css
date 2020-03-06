@@ -31,8 +31,12 @@ p {
     font-size: 12px;
 }
 
+li {
+  margin-bottom: 20px;
+}
+
 #watchlist {
-    box-sizing: border-box;
+  max-width: auto;
     margin: 80px auto;
     margin-left: 150px;
     margin-right: 150px;
@@ -54,7 +58,7 @@ p {
 .poster {
   height: 114px;
   width: 80px;
-  background-image: url('http://placehold.it/558x793/000/000.png');
+  object-fit: cover;
   background-repeat: no-repeat;
   transform-style: preserve-3d;
   border-radius: 3px;
