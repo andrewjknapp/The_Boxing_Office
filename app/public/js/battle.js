@@ -243,7 +243,7 @@ function populateWatchlist(watchlist) {
         let currentMovie = 
         `
         <article class="movie_watchlist" 
-       ${watchlist[i].imdbID}
+        imdbid=${watchlist[i].imdbID}
         style="background-image: url('${watchlist[i].Poster}');">
         </article>
 
