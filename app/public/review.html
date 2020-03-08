@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/review.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Reviews</h1>
+    </header>
+    <main>
+        
+            <div id="review-search">
+                <form>
+                    <label for="reviewSearch">Search for Review</label>
+                    <input type="text" name="reviewSearch" id="search-text">
+                    
+                    <select id="searchBy">
+                        <option value="movie">Movie</option>
+                        <option value="user">User</option>
+                    </select>
+
+                    <input type="submit" id="submitBtn" value="Search">
+                </form>
+            </div>
+        
+        <div id="title">Title</div>
+        <div id="movie-info">Movie information</div>
+        <div id="review">Review</div>
+        <div class="modal hide">
+            <div id="new-review" >
+                hello
+            </div>
+        </div>
+    </main>
+    <script src="./js/review.js"></script>
+</body>
+</html>

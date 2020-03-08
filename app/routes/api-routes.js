@@ -5,6 +5,30 @@ let models = require('../../models');
 let sequlize = require('sequelize');
 
 module.exports = function(app) {
+
+  app.get("/api/review", function(req, res) {
+    
+    let search;
+    if(req.body.reviewType === "movie") {
+      search = {
+        movie_name: req.body.searchText
+      }
+    } else if(req.body.reviewType === "user") {
+      search = {
+        user_name: req.body.searchText
+      }
+    }
+
+    models.Review.findAll({
+      where: search
+    }).then(function(result) {
+      console.log(result);
+      res.send('hello');
+    })
+  })
+
+  app.post("/api/review",)
+
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
         res.json(req.user);
       });

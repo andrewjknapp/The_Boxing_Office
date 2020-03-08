@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../assets/projector.jpg');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}  
+
+header {
+    background-color: rgba(70, 131, 180, 0.829);
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+main {
+    background-color: rgba(137, 145, 139, 0.658);
+    margin: 20px;
+}
+
+
+#review-search {
+    background-color: rgba(70, 131, 180, 0.829);
+    padding: 5px;
+}
+form > * {
+    display: inline-block;
+}
+
+
+.hide {
+    display: none;
+}
+
+.modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(138, 138, 138, 0.603);
+}
