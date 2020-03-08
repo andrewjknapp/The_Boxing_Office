@@ -2,17 +2,29 @@ let express = require('express');
 let app = express();
 var passport = require("../config/passport");
 let models = require('../../models');
-let sequlize = require('sequelize');
+let sequelize = require('sequelize');
+const Op = sequelize.Op;
 
 module.exports = function(app) {
 
-  app.get("/api/review", function(req, res) {
-    console.log(req.body);
-    let search;
+  app.get("/api/review/:id", function(req, res) {
+    models.Review.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(response) {
+      res.send(response);
+    })
+  })
+
+  app.post("/api/review/request", function(req, res) {
+    let search = {};
     if(req.body.reviewType === "movie") {
       search = {
         where: {
-          movie_name: req.body.searchText
+          movie_name: {
+            [Op.like]: `%${req.body.searchText}%`
+          }
         }
       }
     } else if(req.body.reviewType === "user") {
@@ -25,7 +37,6 @@ module.exports = function(app) {
       search = {}
     }
 
-    //console.log(search);
     models.Review.findAll(search).then(function(result) {
       res.send(result);
     })

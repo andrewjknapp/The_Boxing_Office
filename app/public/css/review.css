@@ -132,3 +132,36 @@ form, form > * {
 #movie-info {
     display: none;
 }
+
+#reviews {
+    padding: 10px;
+}
+
+.review {
+    background-color: whitesmoke;
+    padding: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.review > * {
+    display: inline-block;
+}
+
+.user {
+    float: right;
+}
+
+#view-review {
+    background-color: white;
+    width: 80%;
+    height: 90%;
+    margin: 5% auto;
+    padding: 5%;
+    overflow: auto;
+}
+
+#view-review h2 {
+    text-align: center;
+    margin: 10px;
+}

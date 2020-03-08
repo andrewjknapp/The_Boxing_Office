@@ -3,21 +3,25 @@ $(document).ready(function() {
     //     console.log(event.target);
     // })
 
+    $.post('/api/review/request', 0)
+    .then(function(response) {
+        populateReviewList(response);
+    })
+
     $('form').on('submit', function(event) {
         event.preventDefault();
         let reviewType = $('#searchBy').val()
         
         let searchText = $('#search-text').val();
 
-        console.log(reviewType);
         let search = {
             reviewType: reviewType,
             searchText: searchText
         }
-        console.log(search);
-        $.get('/api/review', search)
+        
+        $.post('/api/review/request', search)
         .then(function(response) {
-            console.log(response);
+            populateReviewList(response);
         })
     })
 
@@ -30,9 +34,7 @@ $(document).ready(function() {
     $('#new-modal').on('click', function(event) {
         if(event.target.id === 'new-modal' || event.target.id === 'new-review') {
             if(confirm("Do you want to quit editing? Work not sumbitted will be lost.")) {
-               
                 resetReviewModal();
-
             };
         }
     })
@@ -70,14 +72,63 @@ $(document).ready(function() {
             title: $('#review-title').val(),
             text: $('#review-text').val()
         }
-        console.log(newReview);
         $.post('/api/review', newReview)
         .then(function(response) {
-            console.log(response);
+           
         });
         resetReviewModal();
+        location.reload();
+    })
+
+    $('#found-reviews').on('click', function(event) {
+        if(event.target.matches('article')) {
+            $.get(`/api/review/${event.target.getAttribute('reviewID')}`)
+            .then(function(response) {
+                
+                $('#prev-movie-title').text(response.movie_name);
+                $('#prev-user').text(response.user_name);
+                $('#prev-review-title').text(response.review_title);
+                $('#prev-review-text').text(response.review_text);
+            })
+            $('#view-review-modal').removeClass('hide');
+        } else if (event.target.matches('p')) {
+            $.get(`/api/review/${event.target.parentElement.getAttribute('reviewID')}`)
+            .then(function(response) {
+                
+                $('#prev-movie-title').text(response.movie_name);
+                $('#prev-user').text(response.user_name);
+                $('#prev-review-title').text(response.review_title);
+                $('#prev-review-text').text(response.review_text);
+            })
+            $('#view-review-modal').removeClass('hide');
+        }
+    })
+
+    $('#view-review-modal').on('click', function(event) {
+        if(event.target.id === 'view-review-modal') {
+            $('#view-review-modal').addClass('hide');
+        }
     })
 })
+
+function populateReviewList(arr) {
+
+    $('#found-reviews').empty();
+
+    for(let i = 0; i < arr.length; i++) {
+        let currentReview = 
+        `
+        <article class="review" reviewID="${arr[i].id}">
+        <p>${arr[i].review_title} | </p>
+        <p>${arr[i].movie_name}</p>
+        <p class="user">${arr[i].user_name}</p>
+        </article>
+        `
+
+        $('#found-reviews').prepend(currentReview);
+    }
+
+}
 
 function resetReviewModal() {
     $('#new-modal').addClass('hide');

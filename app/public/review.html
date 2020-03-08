@@ -19,17 +19,23 @@
                 <input type="text" name="reviewSearch" id="search-text">
                 
                 <select id="searchBy">
+                    <option value="all">All</option>
                     <option value="movie">Movie</option>
                     <option value="user">User</option>
-                    <option value="all">All</option>
                 </select>
                 <input type="submit" id="submitBtn" value="Search">
             </form>
         </div>
         
-        <div id="title">Title</div>
-        <div id="movie-info">Movie information</div>
-        <div id="review">Review</div>
+        <div id="reviews">
+            <article class="review">
+                <p>Title | </p>
+                <p>Movie</p>
+                <p class="user">User</p>
+            </article>
+            <div id="found-reviews"></div>
+        </div>
+        
 
         <div id="new-modal" class="modal hide">
             <div id="new-review">
@@ -48,6 +54,15 @@
                     <div id="submit-new-review">Submit Review</div>
                     <div id="movie-name" movie_name=""></div>
                 </div>
+            </div>
+        </div>
+
+        <div id="view-review-modal" class="modal hide">
+            <div id="view-review">
+                <p>Review of <span id="prev-movie-title"></span><p>
+                <p id="prev-user"></p>
+                <h2 id="prev-review-title">Title</h2>
+                <p id="prev-review-text">Text</p>
             </div>
         </div>
     </main>
