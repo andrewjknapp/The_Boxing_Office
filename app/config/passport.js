@@ -3,7 +3,7 @@ let app = express();
 let passport = require("passport");
 let LocalStrategy = require("passport-local").Strategy;
 
-let db = require("../models"); 
+let db = require("../../models"); 
 passport.use(new LocalStrategy(function (username, password, done) {
 
   User.findOne({ username: username }, function (err, user) {
