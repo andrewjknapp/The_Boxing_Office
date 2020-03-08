@@ -7,27 +7,42 @@ let sequlize = require('sequelize');
 module.exports = function(app) {
 
   app.get("/api/review", function(req, res) {
-    
+    console.log(req.body);
     let search;
     if(req.body.reviewType === "movie") {
       search = {
-        movie_name: req.body.searchText
+        where: {
+          movie_name: req.body.searchText
+        }
       }
     } else if(req.body.reviewType === "user") {
       search = {
-        user_name: req.body.searchText
+        where: {
+          user_name: req.body.searchText
+        }
       }
+    } else if (req.body.reviewType === 'all') {
+      search = {}
     }
 
-    models.Review.findAll({
-      where: search
-    }).then(function(result) {
-      console.log(result);
-      res.send('hello');
+    //console.log(search);
+    models.Review.findAll(search).then(function(result) {
+      res.send(result);
     })
   })
 
-  app.post("/api/review",)
+  //Takes object with movie_name, review title and text
+  app.post("/api/review", function(req, res) {
+    models.Review.create({
+      userid: req.user.id,
+      user_name: req.user.name,
+      movie_name: req.body.movie_name,
+      review_title: req.body.title,
+      review_text: req.body.text
+    }).then(function() {
+      res.sendStatus(200);
+    })
+  })
 
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
         res.json(req.user);

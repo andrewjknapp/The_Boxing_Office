@@ -12,27 +12,42 @@
         <h1>Reviews</h1>
     </header>
     <main>
-        
-            <div id="review-search">
-                <form>
-                    <label for="reviewSearch">Search for Review</label>
-                    <input type="text" name="reviewSearch" id="search-text">
-                    
-                    <select id="searchBy">
-                        <option value="movie">Movie</option>
-                        <option value="user">User</option>
-                    </select>
-
-                    <input type="submit" id="submitBtn" value="Search">
-                </form>
-            </div>
+        <div id="review-search">
+            <div id="make-review">Make Movie Review</div>
+            <form>
+                <label for="reviewSearch">Search for Review</label>
+                <input type="text" name="reviewSearch" id="search-text">
+                
+                <select id="searchBy">
+                    <option value="movie">Movie</option>
+                    <option value="user">User</option>
+                    <option value="all">All</option>
+                </select>
+                <input type="submit" id="submitBtn" value="Search">
+            </form>
+        </div>
         
         <div id="title">Title</div>
         <div id="movie-info">Movie information</div>
         <div id="review">Review</div>
-        <div class="modal hide">
-            <div id="new-review" >
-                hello
+
+        <div id="new-modal" class="modal hide">
+            <div id="new-review">
+                <div id="review-movie-chooser">
+                    <h2>Search Movie to Review:</h2>
+                    <input id="movie-search" class="block">
+                    <button id="movieSearchBtn" class="block">Search</button>
+                    <div id="movie-check" class="hide">
+                        <div id="poster"></div>
+                        <div id="new-confirm">Review this Movie</div>
+                    </div>
+                </div>
+                <div id="review-editor" class="hide">
+                    <input type="text" id="review-title" placeholder="Review Title">
+                    <textarea id="review-text" placeholder="Share your thoughts"></textarea>
+                    <div id="submit-new-review">Submit Review</div>
+                    <div id="movie-name" movie_name=""></div>
+                </div>
             </div>
         </div>
     </main>
