@@ -1,0 +1,152 @@
+#background {
+    background-image: url(../assets/theater.jpg);
+    background-position: bottom;
+    background-size: cover;
+    background-color: blanchedalmond;
+    height: 100vh;
+    width: 100vw;
+}
+
+.nav-wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+nav {
+  height: 80px;
+  line-height: 80px;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+  height: 80px;
+  line-height: 80px;
+}
+
+nav .button-collapse i {
+  height: 80px;
+  line-height: 80px;
+}
+
+nav .brand-logo { 
+  font-size: 2rem; 
+}
+
+@media only screen and (min-width: 601px){
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+      height: 80px;
+      line-height: 80px;
+  }
+}
+
+li .btn {
+  color: black;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+}
+
+h1 {
+    font-size: 36px;
+    color: rgb(205, 162, 54);
+    text-align: center;
+}
+
+h4 {
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+h5 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+}
+
+h6 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  margin: 0;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+.placeholder {
+  color: black;
+}
+
+.movie-info-container {
+  background-color: white;
+  opacity: 75%;
+  height: 220px;
+  width: auto;
+  border-radius: 3px;
+  margin-top: 5%;
+}
+
+.movie-info {
+  padding: 10px;
+}
+
+#movie-search {
+  max-height: 30px;
+  border-radius: 5px;
+}
+
+li {
+  margin-bottom: auto;
+}
+
+#search-result {
+  max-width: auto;
+  margin: 80px auto;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.poster-container {
+
+  top: 100px;
+  left: 100px;
+  perspective: 1000;
+  -webkit-perspective: 1000;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.poster {
+  height: auto;
+  width: 100%;
+  background-image: url('http://placehold.it/558x793/000/000.png');
+  background-repeat: no-repeat;
+  transform-style: preserve-3d;
+  border-radius: 3px;
+  border: 3px solid #000;
+  }
+
+.poster:hover {
+  cursor: pointer;
+}
+
+.poster:after {
+  opacity: 0;
+  content: radial-gradient(top, 100% 75%, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.00) 150%);
+  width: 558px;
+  height: 793px;
+  transition: all 1s;
+}
+
+.poster:hover:after {
+  opacity: 1;
+}

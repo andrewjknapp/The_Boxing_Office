@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="./css/materialize.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="./css/search.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="./js/materialize.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  </head>
+
+  <body id="background">
+    <nav>
+      <div class="nav-wrapper red darken-4">
+        <a href="#" class="brand-logo">
+          <img src="assets/boxing-office-logo.png" style="width: auto; height: 80px;"/>
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="battle.html">Battle</a></li>
+          <li><a href="signup.html">Sign In</a></li>
+          <li><input id="movie-search" class="btn input-field amber lighten-5" placeholder="Movie Search"></input></li>
+          <li><i id="movie-submit" type="submit" class="material-icons">search</i></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" id='poster'>
+    </div>
+    
+    <script src="./js/search.js"></script>
+  </body>
+</html>
