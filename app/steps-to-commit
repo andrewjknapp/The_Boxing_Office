@@ -1,4 +1,0 @@
-1. Go into your master branch and do a git pull to make sure it is up to date
-2. git checkout into your branch and do a git merge master to ensure your branch is up to date
-3. in your branch git add, git commit, and git push.
-4. If this is the first push for your branch 
