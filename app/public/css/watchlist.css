@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
 }
+/* navbar formatting */
+
+
 #background {
     background-image: url(../assets/popcorn.jpg);
     background-position: bottom;
