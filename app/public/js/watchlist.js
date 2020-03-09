@@ -28,36 +28,32 @@ $(document).ready(function () {
                     movieid: imdbID,
                     poster: Poster
                 }
+                console.log(movieObj);
                 $.post("/api/watchlist", movieObj)
- //Example ajax get
-    //$.get("/api/watchlist")
-    //.then(function(result) {
-    // do something with result
-    //})
-
- //Example ajax Put
-    // $.ajax({
-    //     method: "PUT",
-    //     url: "/api/watchlist/tt6751668"
-    // }).then(function(response) {
-    //     console.log(response);
-    // })
-  //Example ajax delete
-    // $.ajax({
-    //     method: "DELETE",
-    //     url: "/api/watchlist/tt6751668"
-    // }).then(function(response) {
-    //     console.log(response);
-    // })
-
-
-
-
-
-
+                //loop through movie ids and call moviesearch 
+                // $.get("/api/watchlist")
+                //     .then(function (result) {
+                //         console.log(result);
+                //     });
             }
         });
     };
+    $('#watched').on('click', function () {
+        $.ajax({
+            method: "PUT",
+            url: "/api/watchlist/" + imdbID
+        }).then(function (response) {
+            console.log(response);
+        })
+    });
+    $('#delete').on('click', function () {
+        $.ajax({
+            method: "DELETE",
+            url: "/api/watchlist/" + imdbID
+        }).then(function (response) {
+            console.log(response);
+        });
+    });
     $(document.body).on('click', '.delete', function () {
         $(this).parent().parent().remove();
     });
