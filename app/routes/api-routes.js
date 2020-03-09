@@ -2,9 +2,59 @@ let express = require('express');
 let app = express();
 var passport = require("../config/passport");
 let models = require('../../models');
-let sequlize = require('sequelize');
+let sequelize = require('sequelize');
+const Op = sequelize.Op;
 
 module.exports = function(app) {
+
+  app.get("/api/review/:id", function(req, res) {
+    models.Review.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(response) {
+      res.send(response);
+    })
+  })
+
+  app.post("/api/review/request", function(req, res) {
+    let search = {};
+    if(req.body.reviewType === "movie") {
+      search = {
+        where: {
+          movie_name: {
+            [Op.like]: `%${req.body.searchText}%`
+          }
+        }
+      }
+    } else if(req.body.reviewType === "user") {
+      search = {
+        where: {
+          user_name: req.body.searchText
+        }
+      }
+    } else if (req.body.reviewType === 'all') {
+      search = {}
+    }
+
+    models.Review.findAll(search).then(function(result) {
+      res.send(result);
+    })
+  })
+
+  //Takes object with movie_name, review title and text
+  app.post("/api/review", function(req, res) {
+    models.Review.create({
+      userid: req.user.id,
+      user_name: req.user.name,
+      movie_name: req.body.movie_name,
+      review_title: req.body.title,
+      review_text: req.body.text
+    }).then(function() {
+      res.sendStatus(200);
+    })
+  })
+
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
 
         res.json(req.user);
