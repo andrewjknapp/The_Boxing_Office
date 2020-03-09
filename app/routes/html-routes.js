@@ -27,4 +27,8 @@ app.get('/battle', function (req, res) {
     )
 });
 
+app.get('/review', function(req, res) {
+    return res.sendFile(path.join(__dirname, '..', "public", "review.html"))
+})
+
 }

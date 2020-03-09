@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../assets/projector.jpg');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}  
+
+header {
+    background-color: rgba(70, 131, 180, 0.829);
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+main {
+    background-color: rgba(137, 145, 139, 0.658);
+    margin: 20px;
+}
+
+
+#review-search {
+    background-color: rgba(70, 131, 180, 0.829);
+    padding: 5px;
+}
+form, form > * {
+    display: inline-block;
+}
+
+#make-review {
+    height: 21px;
+    width: fit-content;
+    background-color: tomato;
+    float: right;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+
+.hide {
+    display: none;
+}
+
+.modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(138, 138, 138, 0.603);
+}
+
+#new-review {
+    margin: 5% auto;
+    width: 80%;
+    height: 90%;
+}
+
+#poster {
+    background-image: url('../assets/LOTR.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 400px;
+}
+
+#new-confirm {
+    width: fit-content;
+    background-color: tomato;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+#review-movie-chooser {
+    background-color: thistle;
+    padding: 20px;
+}
+
+#review-movie-chooser > * {
+    margin: 3px auto;
+    text-align: center;
+}
+
+.block {
+    display: block;
+}
+
+#review-editor {
+    position: fixed;
+    width: 80%;
+    height: 90%;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+#review-title {
+    display: block;
+    width: 100%;
+    height: 50px;
+    font-size: 1.3em;
+    padding: 20px;
+}
+
+#review-text {
+    width: 100%;
+    overflow: auto;
+    resize: none;
+    height: 80%;
+    padding: 20px;
+}
+
+#submit-new-review {
+    background-color: tomato;
+    width: fit-content;
+    padding: 5px;
+    margin: 5px auto;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#movie-info {
+    display: none;
+}
+
+#reviews {
+    padding: 10px;
+}
+
+.review {
+    background-color: whitesmoke;
+    padding: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.review > * {
+    display: inline-block;
+}
+
+.user {
+    float: right;
+}
+
+#view-review {
+    background-color: white;
+    width: 80%;
+    height: 90%;
+    margin: 5% auto;
+    padding: 5%;
+    overflow: auto;
+}
+
+#view-review h2 {
+    text-align: center;
+    margin: 10px;
+}
