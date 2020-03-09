@@ -21,12 +21,13 @@ h1 {
 .login {
     text-align: left;
     color: antiquewhite ;
+    text-align: left;
     font-family: Bungee;
     margin-left: 5%;
     padding: 20px;
 }
 .buttons {
-   display: flex;
+    display: flex;
    flex-direction: row;
    float: left;
    margin-left: 20px;
@@ -40,12 +41,4 @@ h1 {
    margin: 4px 2px;
    margin-left: 25px;
    cursor: pointer;
-}
-p {
-    color: antiquewhite;
-    font-family: 'Rambla', sans-serif;
-    display: flex;
-    align-items: flex-end;
-    margin-top: 32%;
-    margin-left: 550px;
-}
+ }

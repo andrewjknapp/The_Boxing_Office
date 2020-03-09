@@ -34,3 +34,5 @@ module.exports = function(sequelize, DataTypes) {
   });
   return User;
 };
+
+// here is where we would put password requirements...if we wanted to 
