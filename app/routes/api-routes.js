@@ -51,7 +51,7 @@ module.exports = function(app) {
       review_title: req.body.title,
       review_text: req.body.text
     }).then(function() {
-      res.sendStatus(200);
+      res.send(result)
     })
   })
 
@@ -115,6 +115,7 @@ module.exports = function(app) {
     //Creates a new entry into Watchlist
     //Requires an object with poster and movie id
     app.post('/api/watchlist', function(req, res) {
+      console.log(req.body);
         models.Watchlist.create({
             userid: req.user.id,
             movieid: req.body.movieid,
@@ -192,7 +193,6 @@ module.exports = function(app) {
                     userid: req.user.id
                 }
             }).then(function(result) {
-                res.sendSatus(200);
             })
         }
     })
