@@ -13,20 +13,25 @@ $(document).ready(function () {
         }).then(function (response) {
             if (response !== null) {
                 // let movie = response;
-                let {Poster, Title, Year, Plot} = response;
+                let { Poster, Title, Year, Plot } = response;
                 let currentMovie =
                     `<section class='watchlistInfo'>
                         <div class="poster" style="background-image: url(${Poster});"></div>
                         <div class="title"><h3>${Title}  (${Year})</h3></div>
                         <div class="plot">${Plot}</div>
-                        <div class="unwatched"></div>
-                    </section>`;
+                        <div class="watched" style="background-image: url(assets/Popcorn.png);"></div>
+                        </section>`;
 
                 $('#toWatch').prepend(currentMovie);
 
             }
         });
     }
+
+    $(document.body).on('click', '.watched', function(){
+        let movie = $(this).parent().detach();
+        $('#seen').prepend(movie);
+    });
 
     function generateMovieListing(imdbID) {
         let queryURL = `http://omdbapi.com/?apikey=trilogy&i=${imdbID}`;
