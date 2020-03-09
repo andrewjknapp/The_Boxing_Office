@@ -119,7 +119,7 @@ form, form > * {
     padding: 20px;
 }
 
-#submit-new-review {
+.next-button {
     background-color: tomato;
     width: fit-content;
     padding: 5px;

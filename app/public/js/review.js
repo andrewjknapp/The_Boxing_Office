@@ -66,6 +66,11 @@ $(document).ready(function() {
 
     })
 
+    $('#number-review').on('click', function(event) {
+        $('#review-editor').addClass('hide');
+        $('#user-rating').removeClass('hide');
+    })
+
     $('#submit-new-review').on('click', function(event) {
         let newReview = {
             movie_name: $('#movie-name').attr('movie_name'),
@@ -90,6 +95,7 @@ $(document).ready(function() {
                 $('#prev-user').text(response.user_name);
                 $('#prev-review-title').text(response.review_title);
                 $('#prev-review-text').text(response.review_text);
+                $('#prev-rating').text(`Rating: ${response.user_rating}`);
             })
             $('#view-review-modal').removeClass('hide');
         } else if (event.target.matches('p')) {
@@ -100,6 +106,7 @@ $(document).ready(function() {
                 $('#prev-user').text(response.user_name);
                 $('#prev-review-title').text(response.review_title);
                 $('#prev-review-text').text(response.review_text);
+                $('#prev-rating').text(`Rating: ${response.user_rating}`);
             })
             $('#view-review-modal').removeClass('hide');
         }
@@ -159,7 +166,7 @@ function populateReviewList(arr) {
 function resetReviewModal() {
     $('#new-modal').addClass('hide');
     $('#review-movie-chooser').removeClass('hide');
-    $('#review-editor').addClass('hide');
+    $('#user-rating').addClass('hide');
     $('#review-title').val('');
     $('#review-text').val('');
 }
