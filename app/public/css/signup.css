@@ -32,7 +32,6 @@ h3 {
 .login {
     text-align: left;
     color: antiquewhite ;
-    text-align: left;
     font-family: Bungee;
     margin-left: 1%;
     padding: 20px;
@@ -48,11 +47,12 @@ h3 {
    border-radius: 25px;
    color: antiquewhite;
    font-family: 'Rambla', sans-serif;
-   padding: 15px 32px;
+   padding: 15px 40px;
    font-size: 16px;
    margin: 4px 2px;
    margin-left: 25px;
    cursor: pointer;
+   width: 125px;
  }
  form {
      width: 28%;
