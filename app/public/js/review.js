@@ -70,7 +70,8 @@ $(document).ready(function() {
         let newReview = {
             movie_name: $('#movie-name').attr('movie_name'),
             title: $('#review-title').val(),
-            text: $('#review-text').val()
+            text: $('#review-text').val(),
+            user_rating: userRating
         }
         $.post('/api/review', newReview)
         .then(function(response) {
@@ -109,7 +110,32 @@ $(document).ready(function() {
             $('#view-review-modal').addClass('hide');
         }
     })
+
+    let userRating = 5;
+    $('#stars').on('mouseover', function(event) {
+        if(event.target.classList.contains('star')) {
+            let starNum = Number(event.target.getAttribute('starid'));
+            displayStars(starNum);
+            userRating = starNum;
+        }
+    })
+
+    $('#stars').on('click', function(event) {
+        if(event.target.classList.contains('star')) {
+            userRating = Number(event.target.getAttribute('starid'));
+        }
+    })
+
 })
+
+function displayStars(num) {
+    for (let i = 1; i <= 5; i++) {
+        $(`#star-${i}`).text('-');
+    }
+    for(let i = 1; i <= num; i++) {
+        $(`#star-${i}`).text('🍿');
+    }
+}
 
 function populateReviewList(arr) {
 
