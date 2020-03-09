@@ -55,7 +55,9 @@ form input {
     padding: 5px;
     border-radius: 25px;
 }
-
+input:focus {
+    background-color: peachpuff;
+}
 
 p {
     color: antiquewhite;
