@@ -8,6 +8,9 @@
     width: 100vw;
 }
 
+input:focus {
+  background-color: peachpuff;
+}
 
 
 
