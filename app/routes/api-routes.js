@@ -170,7 +170,7 @@ module.exports = function(app) {
                 userid: req.user.id
             }
         }).then(function(result) {
-            console.log(result)
+            res.send(200);
         })
     })
 

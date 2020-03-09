@@ -72,6 +72,16 @@
     animation-iteration-count: infinite;
 }
 
+#searchText {
+    position: fixed;
+    top: 100px;
+}
+
+#searchBtn {
+    position: fixed;
+    top: 150px;
+}
+
 @keyframes popWiggle {
     50% {
         transform: rotate(10deg);
