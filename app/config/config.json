@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
+    "password": "joelspielberger",
+=======
     "password": "hellogoodbye",
+>>>>>>> master
     "database": "users_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
