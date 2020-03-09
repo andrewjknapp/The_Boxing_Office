@@ -52,8 +52,19 @@
                 <div id="review-editor" class="hide">
                     <input type="text" id="review-title" placeholder="Review Title">
                     <textarea id="review-text" placeholder="Share your thoughts"></textarea>
-                    <div id="submit-new-review">Submit Review</div>
+                    <div id="number-review" class="next-button">Next</div>
                     <div id="movie-name" movie_name=""></div>
+                </div>
+                <div id="user-rating" class="hide">
+                    <h2>User Rating</h2>
+                    <p id="stars">
+                        <span id="star-1" starid="1" present="yes" class="star">🍿</span>
+                        <span id="star-2" starid="2" present="yes" class="star">🍿</span>
+                        <span id="star-3" starid="3" present="yes" class="star">🍿</span>
+                        <span id="star-4" starid="4" present="yes" class="star">🍿</span>
+                        <span id="star-5" starid="5" present="yes" class="star">🍿</span>
+                    </p>
+                    <div id="submit-new-review" class="next-button">Submit Review</div>
                 </div>
             </div>
         </div>
@@ -62,6 +73,8 @@
             <div id="view-review">
                 <p>Review of <span id="prev-movie-title"></span><p>
                 <p id="prev-user"></p>
+                <p id="prev-rating"></p>
+                <img id="prev-poster">
                 <h2 id="prev-review-title">Title</h2>
                 <p id="prev-review-text">Text</p>
             </div>

@@ -66,11 +66,17 @@ $(document).ready(function() {
 
     })
 
+    $('#number-review').on('click', function(event) {
+        $('#review-editor').addClass('hide');
+        $('#user-rating').removeClass('hide');
+    })
+
     $('#submit-new-review').on('click', function(event) {
         let newReview = {
             movie_name: $('#movie-name').attr('movie_name'),
             title: $('#review-title').val(),
-            text: $('#review-text').val()
+            text: $('#review-text').val(),
+            user_rating: userRating
         }
         $.post('/api/review', newReview)
         .then(function(response) {
@@ -89,6 +95,7 @@ $(document).ready(function() {
                 $('#prev-user').text(response.user_name);
                 $('#prev-review-title').text(response.review_title);
                 $('#prev-review-text').text(response.review_text);
+                $('#prev-rating').text(`Rating: ${response.user_rating}`);
             })
             $('#view-review-modal').removeClass('hide');
         } else if (event.target.matches('p')) {
@@ -99,6 +106,7 @@ $(document).ready(function() {
                 $('#prev-user').text(response.user_name);
                 $('#prev-review-title').text(response.review_title);
                 $('#prev-review-text').text(response.review_text);
+                $('#prev-rating').text(`Rating: ${response.user_rating}`);
             })
             $('#view-review-modal').removeClass('hide');
         }
@@ -109,7 +117,32 @@ $(document).ready(function() {
             $('#view-review-modal').addClass('hide');
         }
     })
+
+    let userRating = 5;
+    $('#stars').on('mouseover', function(event) {
+        if(event.target.classList.contains('star')) {
+            let starNum = Number(event.target.getAttribute('starid'));
+            displayStars(starNum);
+            userRating = starNum;
+        }
+    })
+
+    $('#stars').on('click', function(event) {
+        if(event.target.classList.contains('star')) {
+            userRating = Number(event.target.getAttribute('starid'));
+        }
+    })
+
 })
+
+function displayStars(num) {
+    for (let i = 1; i <= 5; i++) {
+        $(`#star-${i}`).text('-');
+    }
+    for(let i = 1; i <= num; i++) {
+        $(`#star-${i}`).text('🍿');
+    }
+}
 
 function populateReviewList(arr) {
 
@@ -133,7 +166,7 @@ function populateReviewList(arr) {
 function resetReviewModal() {
     $('#new-modal').addClass('hide');
     $('#review-movie-chooser').removeClass('hide');
-    $('#review-editor').addClass('hide');
+    $('#user-rating').addClass('hide');
     $('#review-title').val('');
     $('#review-text').val('');
 }

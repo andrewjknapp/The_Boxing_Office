@@ -49,8 +49,9 @@ module.exports = function(app) {
       user_name: req.user.name,
       movie_name: req.body.movie_name,
       review_title: req.body.title,
-      review_text: req.body.text
-    }).then(function() {
+      review_text: req.body.text,
+      user_rating: req.body.user_rating
+    }).then(function(result) {
       res.send(result)
     })
   })
