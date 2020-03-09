@@ -25,9 +25,10 @@
 
 #battle-prep {
     width: 90%;
-    height: 90%;
+    height: 87%;
     margin: 0 auto;
-    background-image: url('../assets/basement.jpg');
+    margin-top: 10px;
+    background-image: url('../assets/boxingfight.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -108,11 +109,28 @@
     transform: scale(1.05);
 }
 
-#ready-check {
+#ready {
     position: fixed;
-    background-color: royalblue;
-    top: 0;
+    top: 10%;
+    left: 50%;
+    width: 450px;
+    height: 450px;
+    text-align: center;
+    margin-left: -225px;
     cursor: pointer;
+    background-image: url('../assets/comic-png-4.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: wiggle;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#ready-check {
+    font-size: 1.7em;
+    position: relative;
+    top: 210px;
 }
 
 .hide {
