@@ -163,7 +163,6 @@ module.exports = function(app) {
         let watchUpdate = {
             is_watched: true
         }
-        console.log(req.user.id);
         models.Watchlist.update(watchUpdate, {
             where: {
                 movieid: req.params.id,
