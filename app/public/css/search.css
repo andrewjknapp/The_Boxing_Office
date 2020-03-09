@@ -1,6 +1,6 @@
 #background {
-    background-image: url(../assets/theater.jpg);
-    background-position: bottom;
+    background-image: url(../assets/movie-backgrounds/film-abstract-background.jpg);
+    /* background-position: bottom; */
     background-size: cover;
     background-color: blanchedalmond;
     height: 100vh;

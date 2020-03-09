@@ -1,7 +1,6 @@
 $(document).ready(function() {
   function movieSearch(searchString) {
     let queryURL = `http://omdbapi.com/?apikey=trilogy&t=${searchString}`;
-
     $.ajax({
       url: queryURL
     }).then(function(response) {
