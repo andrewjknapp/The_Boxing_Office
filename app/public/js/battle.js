@@ -60,9 +60,12 @@ function decider(movie1, movie2) {
 let round = 1;
 $('#fight-bet').on('click', function(event) {
     startBattle();
+    if(round > 4) {
+        location.reload();
+    }
 });
 
-$('#ready-check').on('click', async function(event) {
+$('#ready').on('click', async function(event) {
     $('#start-modal').addClass('hide');
     let one = $('#fighter1-prep').attr('imdbid');
     let two = $('#fighter2-prep').attr('imdbid');
@@ -96,7 +99,7 @@ function startBattle() {
 }
 
 function roundDeclaration(num) {
-    let rounds = ['Critic Rating', 'imdb Votes', 'Box Office'];
+    let rounds = ['Critical Reception', 'Popularity', 'Box Office'];
     let betText = ['Continue?', 'Final Round', 'Winner'];
     let results = ['Metascore', 'imdbVotes', 'BoxOffice'];
 
@@ -169,6 +172,10 @@ function winner(result) {
         }, 'slow');
     }
     $('.fireworks').css('opacity', 1);
+    setTimeout(function() {
+        $('#bet-text').text('Play again?')
+    }, 2000)
+    round++;
 }
 
 function attack() {
@@ -279,6 +286,7 @@ function fillFighter(ajaxResonse) {
         $('#fighter2-prep').empty();
         $('#fighter2-prep').css('background-image', `url(${ajaxResonse.Poster})`);
         $('#fighter2-prep').attr('imdbid', `${ajaxResonse.imdbID}`);
+        $('#ready').removeClass('hide');
     }
 }
 
