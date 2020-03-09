@@ -1,11 +1,15 @@
 #background {
-    background-image: url(../assets/theater.jpg);
-    background-position: bottom;
+    background-image: url(../assets/movie-backgrounds/film-abstract-background.jpg);
+    /* background-position: bottom; */
     background-size: cover;
+    background-attachment: fixed;
     background-color: blanchedalmond;
     height: 100vh;
     width: 100vw;
 }
+
+
+
 
 .nav-wrapper {
   padding-left: 15px;
@@ -25,6 +29,33 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 nav .button-collapse i {
   height: 80px;
   line-height: 80px;
+}
+
+.metascore-green {
+  font-weight: normal;
+  background-color: #6aca3f;
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 5px;
+}
+
+.metascore-orange {
+  font-weight: normal;
+  background-color: #fecb45;
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 5px;
+}
+
+.metascore-red {
+  font-weight: normal;
+  background-color: #fc0d1b;
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 5px;
 }
 
 nav .brand-logo { 
@@ -49,7 +80,7 @@ li .btn {
 
 h1 {
     font-size: 36px;
-    color: rgb(205, 162, 54);
+    color: #cda236;
     text-align: center;
 }
 
@@ -71,7 +102,7 @@ h6 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 12px;
-  margin: 0;
+  margin-top: 6px;
 }
 
 p {
@@ -85,12 +116,16 @@ p {
 }
 
 .movie-info-container {
-  background-color: white;
+  background-color: #fffaf0;
   opacity: 75%;
   height: 220px;
   width: auto;
   border-radius: 3px;
   margin-top: 5%;
+}
+
+#movie-submit {
+  cursor: pointer;
 }
 
 .movie-info {
@@ -132,7 +167,7 @@ li {
   background-repeat: no-repeat;
   transform-style: preserve-3d;
   border-radius: 3px;
-  border: 3px solid #000;
+  border: 3px solid #5b5b5b;
   }
 
 .poster:hover {
