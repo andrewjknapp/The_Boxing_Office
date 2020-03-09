@@ -20,6 +20,7 @@ $(document).ready(function () {
                         <div class="title"><h3>${Title}  (${Year})</h3></div>
                         <div class="plot">${Plot}</div>
                         <div class="watched" style="background-image: url(assets/Popcorn.png);"></div>
+                        <div class="delete"> <button>Delete</button> </div>
                         </section>`;
 
                 $('#toWatch').prepend(currentMovie);
