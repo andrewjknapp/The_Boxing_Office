@@ -12,8 +12,8 @@ $(document).ready(function () {
             url: queryURL
         }).then(function (response) {
             if (response !== null) {
-                // let movie = response;
-                let { Poster, Title, Year, Plot } = response;
+                console.log(response);
+                let { Poster, Title, Year, Plot, imdbID } = response;
                 let currentMovie =
                     `<section class='watchlistInfo'>
                         <div class="poster" style="background-image: url(${Poster});"></div>
@@ -24,58 +24,46 @@ $(document).ready(function () {
                         </section>`;
 
                 $('#toWatch').prepend(currentMovie);
+                let movieObj = {
+                    movieid: imdbID,
+                    poster: Poster
+                }
+                $.post("/api/watchlist", movieObj)
+ //Example ajax get
+    //$.get("/api/watchlist")
+    //.then(function(result) {
+    // do something with result
+    //})
+
+ //Example ajax Put
+    // $.ajax({
+    //     method: "PUT",
+    //     url: "/api/watchlist/tt6751668"
+    // }).then(function(response) {
+    //     console.log(response);
+    // })
+  //Example ajax delete
+    // $.ajax({
+    //     method: "DELETE",
+    //     url: "/api/watchlist/tt6751668"
+    // }).then(function(response) {
+    //     console.log(response);
+    // })
+
+
+
+
+
+
             }
         });
-    }
-
-    $(document.body).on('click', '.delete', function(){
+    };
+    $(document.body).on('click', '.delete', function () {
         $(this).parent().parent().remove();
-    })
+    });
 
-    $(document.body).on('click', '.watched', function(){
+    $(document.body).on('click', '.watched', function () {
         let movie = $(this).parent().detach();
         $('#seen').prepend(movie);
     });
-
-    function generateMovieListing(imdbID) {
-        let queryURL = `http://omdbapi.com/?apikey=trilogy&i=${imdbID}`;
-
-        return new Promise((resolve, reject) => {
-
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).then(function (resp) {
-                let movie = resp;
-
-                let title = movie.Title;
-                let year = movie.Year;
-                let runtime = movie.Runtime;
-                let director = movie.Director;
-
-                let searchResp = {
-                    Title: title,
-                    Year: year,
-                    Director: director,
-                    Runtime: runtime,
-                    Metascore: movie.Metascore,
-                    imdbVotes: movie.imdbVotes,
-                    imdbID: movie.imdbID,
-                    Poster: movie.Poster,
-                    BoxOffice: movie.BoxOffice,
-                    Plot: movie.Plot,
-                    Awards: movie.Awards,
-                    Actors: movie.Actors,
-                    Genre: movie.Genre
-                }
-                console.log(searchResp);
-                resolve(searchResp);
-
-            })
-        })
-    }
 });
-
-//prepend
-
-//reference watchlisy array
