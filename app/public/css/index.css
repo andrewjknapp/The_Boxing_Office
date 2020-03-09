@@ -12,8 +12,9 @@
 }
 h1 {
     text-align: center;
+    margin-left: 2%;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     color: antiquewhite ;
     text-align: left;
     font-family: Bungee;
@@ -22,7 +23,7 @@ h1 {
     text-align: left;
     color: antiquewhite ;
     font-family: Bungee;
-    margin-left: 5%;
+    margin-left: 1%;
     padding: 20px;
 }
 .buttons {
@@ -41,6 +42,20 @@ h1 {
    margin-left: 25px;
    cursor: pointer;
 }
+.buttons:hover {
+    background-image: linear-gradient(rgb(255, 0, 170), rgb(14, 155, 165));
+    box-shadow: 5px 10px aqua;
+}
+form {
+    width: 28%;
+}
+form input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 25px;
+}
+
+
 p {
     color: antiquewhite;
     font-family: 'Rambla', sans-serif;

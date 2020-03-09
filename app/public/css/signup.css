@@ -11,21 +11,33 @@
     height: 100vh;
 }
 h1 {
-    text-align: center;
     display: flex;
-    justify-content: center;
+    margin-left: 9%;
+    justify-content: left;
     color: antiquewhite ;
-    text-align: left;
+    text-align: center;
     font-family: Bungee;
+}
+h3 {
+    display: flex;
+    margin-left: 3.5%;
+    justify-content: left;
+    color: antiquewhite ;
+    text-align: center;
+    font-family: Bungee;
+    font-weight: 100;
+    width: 350px;
+    margin-right: 10%;
 }
 .login {
     text-align: left;
     color: antiquewhite ;
     text-align: left;
     font-family: Bungee;
-    margin-left: 5%;
+    margin-left: 1%;
     padding: 20px;
 }
+
 .buttons {
     display: flex;
    flex-direction: row;
@@ -42,3 +54,17 @@ h1 {
    margin-left: 25px;
    cursor: pointer;
  }
+ form {
+     width: 28%;
+ }
+ form input {
+     width: 100%;
+     padding: 5px;
+     border-radius: 25px;
+ }
+
+ .buttons:hover {
+    background-image: linear-gradient(rgb(255, 0, 170), rgb(14, 155, 165));
+    box-shadow: 5px 10px aqua;
+
+}
