@@ -166,6 +166,7 @@ function populateReviewList(arr) {
 function resetReviewModal() {
     $('#new-modal').addClass('hide');
     $('#review-movie-chooser').removeClass('hide');
+    $('#review-editor').addClass('hide');
     $('#user-rating').addClass('hide');
     $('#review-title').val('');
     $('#review-text').val('');
