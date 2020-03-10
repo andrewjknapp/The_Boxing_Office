@@ -135,11 +135,17 @@ form, form > * {
     max-height: 30px;
     width: 300px;
     border-radius: 5px;
+    margin: 0px 10px 0px 0px;
 }
 #searchBy {
+    margin: 0;
     max-height: 30px;
     width: 300px;
     border-radius: 5px;
+}
+
+#submitBtn {
+    color: #fdf7ec;
 }
 
 #submit-new-review {
