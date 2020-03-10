@@ -291,7 +291,7 @@ function fillFighter(ajaxResonse) {
 }
 
 function movieSearch(searchString) {
-    let queryURL = `http://omdbapi.com/?apikey=trilogy&t=${searchString}`;
+    let queryURL = `https://omdbapi.com/?apikey=trilogy&t=${searchString}`;
 
     return new Promise((resolve, reject) => {
         $.ajax({
@@ -326,7 +326,7 @@ function movieSearch(searchString) {
     })
 }
 function generateMovieListing(imdbID) {
-    let queryURL = `http://omdbapi.com/?apikey=trilogy&i=${imdbID}`;
+    let queryURL = `https://omdbapi.com/?apikey=trilogy&i=${imdbID}`;
 
     return new Promise((resolve, reject) => {
 
