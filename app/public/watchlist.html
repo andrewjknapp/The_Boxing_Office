@@ -2,22 +2,35 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/watchlist.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="./css/materialize.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="./css/wishlist.css"/>
     <link type="text/css" rel="stylesheet" href="./css/navbar.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Bungee&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- placeholder title -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="./js/materialize.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <title>The Boxing Office</title>
 </head>
 
 <body id="background">
-    
-    <!-- SEARCH -->
-    <h4>Search</h4>
-    <input id="searchText" type="text">
-    <button id="searchBtn">Search</button>
+
+    <nav>
+        <div class="nav-wrapper blue-grey darken-2">
+          <a href="#" class="brand-logo">
+            <img src="assets/boxing-office-logo.png" style="width: auto; height: 80px;"/>
+          </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="battle.html">Boxing Office</a></li>
+            <li><a href="watchlist.html">Watchlist</a></li>
+            <li><a href= "review.html">Reviews</a></li>
+            <li><input id="searchText" class="btn input-field amber lighten-5" placeholder="Movie Search"></input></li>
+            <li><i id="searchBtn" type="submit" class="material-icons">search</i></li>
+            <li style="float:right"><a class="active" href="/logout">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+  
+    <!-- SEARCH RESULT -->
     <div id ='list'>
         <div id="toWatch">
             <section class='watchlistInfo'>
@@ -49,15 +62,7 @@
         </div>
         
     </div>
-    <div class="navbar">
-        <ul>
-            <li><a href="search.html">Movie Search</a></li>
-            <li><a href="battle.html">Boxing Office</a></li>
-            <li><a href="watchlist.html">Watchlist</a></li>
-            <li><a href= "review.html">Reviews</a></li>
-            <li style="float:right"><a class="active" href="/logout">Logout</a></li>
-          </ul>
-    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/members.js"></script>
     <script type="text/javascript" src="js/watchlist.js"></script>

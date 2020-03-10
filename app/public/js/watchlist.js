@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    $('#toWatch').empty();
+    //$('#toWatch').empty();
     $('#searchBtn').on('click', async function (event) {
         let search = $('#searchText').val();
         let data = await movieSearch(search);

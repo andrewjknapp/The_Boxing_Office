@@ -25,7 +25,28 @@
   }
   
   .active {
-    background-color: #5d6172;
+    background-color: #465a64;
     margin-left: 40px;
   }
+
+  .nav-wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  nav {
+    height: 80px;
+    line-height: 80px;
+  }
+  
+  nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    height: 80px;
+    line-height: 80px;
+  }
+  
+  nav .button-collapse i {
+    height: 80px;
+    line-height: 80px;
+  }
+  
   

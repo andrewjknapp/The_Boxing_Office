@@ -8,29 +8,6 @@
     width: 100vw;
 }
 
-
-
-
-.nav-wrapper {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-nav {
-  height: 80px;
-  line-height: 80px;
-}
-
-nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
-  height: 80px;
-  line-height: 80px;
-}
-
-nav .button-collapse i {
-  height: 80px;
-  line-height: 80px;
-}
-
 .metascore-green {
   font-weight: normal;
   background-color: #6aca3f;
