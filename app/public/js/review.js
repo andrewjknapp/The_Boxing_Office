@@ -153,7 +153,8 @@ function populateReviewList(arr) {
         `
         <article class="review" reviewID="${arr[i].id}">
         <p>${arr[i].review_title} | </p>
-        <p>${arr[i].movie_name}</p>
+        <p>${arr[i].movie_name} | </p>
+        <p>Rating: ${arr[i].user_rating}/5</p>
         <p class="user">${arr[i].user_name}</p>
         </article>
         `
