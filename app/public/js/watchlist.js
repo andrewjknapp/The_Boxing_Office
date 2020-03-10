@@ -56,6 +56,7 @@ function movieSearch(searchString) {
 };
 
 function addToWatchlist(response) {
+    console.log(response);
     if (response !== null) {
 
         console.log(response);
@@ -65,13 +66,8 @@ function addToWatchlist(response) {
             `<section class='watchlistInfo' movieid=${imdbID}>
                 <div class="poster" style="background-image: url(${Poster});"></div>
                 <div class="title">${Title}  (${Year})</div>
-                <div class="plot">${Plot}</div>`;
-                if(is_watched) {
-                    currentMovie += `<div class="watched popcorn" style="background-image: url(assets/Popcorn.png);"`
-                } else {
-                    currentMovie += `<div class="watched kernel" style="background-image: url(assets/corn-kernel.png);"`               
-                 }
-                currentMovie += `></div>
+                <div class="plot">${Plot}</div>
+                <div class="watched kernel" style="background-image: url(assets/corn-kernel.png);"></div>
                 <div class="delete" id=${imdbID}>Delete</div>
             </section>`;
 
@@ -88,6 +84,7 @@ function displayMovies() {
         for (i = 0; i < result.length; i++) {
             let movieID = result[i].movieid;
             let is_watched = result[i].is_watched;
+            console.log(is_watched);
             let queryURL = `https://omdbapi.com/?apikey=trilogy&i=${movieID}`;
             $.ajax({
                 url: queryURL
@@ -116,6 +113,7 @@ function displayMovies() {
                     } else {
                         $('#seen').prepend(currentMovie);
                     }
+                    console.log(is_watched);
                 } 
             });
         }
