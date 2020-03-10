@@ -38,7 +38,7 @@ $(document).ready(function () {
 });
 
 function movieSearch(searchString) {
-    let queryURL = `http://omdbapi.com/?apikey=trilogy&t=${searchString}`;
+    let queryURL = `https://omdbapi.com/?apikey=trilogy&t=${searchString}`;
     $.ajax({
         url: queryURL
     }).then(function (response) {
@@ -82,7 +82,7 @@ function displayMovies() {
         for (i = 0; i < result.length; i++) {
             let movieID = result[i].movieid;
             let is_watched = result[i].is_watched;
-            let queryURL = `http://omdbapi.com/?apikey=trilogy&i=${movieID}`;
+            let queryURL = `https://omdbapi.com/?apikey=trilogy&i=${movieID}`;
             $.ajax({
                 url: queryURL
             }).then(function (response) {
