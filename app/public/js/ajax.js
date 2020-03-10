@@ -33,7 +33,7 @@ $(document).ready(function() {
         })
     }
     function generateMovieListing(imdbID) {
-        let queryURL = `http://omdbapi.com/?apikey=trilogy&i=${imdbID}`;
+        let queryURL = `https://omdbapi.com/?apikey=trilogy&i=${imdbID}`;
 
         $.ajax({
             url: queryURL,
