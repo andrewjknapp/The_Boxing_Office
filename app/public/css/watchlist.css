@@ -5,12 +5,17 @@
 }
 /* navbar formatting */
 
+body {
+    overflow-x: hidden;
+}
+
 
 #background {
     background-image: url(../assets/popcorn.jpg);
     background-position: bottom;
     background-size: cover;
     background-color: blanchedalmond;
+    background-attachment: fixed;
     width: 100vw;
     height: 100vh;
 }
@@ -25,6 +30,8 @@
     width: 80%;
     margin: 0 auto;
     padding: 10px;
+    position: relative;
+    top: 50px;
 }
 
 .watchlistInfo {
@@ -45,32 +52,91 @@
 }
 
 .title {
+    position: relative;
+    top: 5%;
+    left: 2%;
     height: 20%;
     font-size: 1.5em;
-    
+    width: 70%;
+    text-align: left;
+    padding: 0;
+    overflow-x: auto;
 }
 
 .plot {
-
+    position: relative;
+    top: 5%;
+    left: 1%;
     padding: 5px;
     height: 50%;
     overflow: hidden;
 }
 
 .watched {
-    height: 30px;
+    height: 45px;
     width: 7%;
     position: absolute;
-    top: 20px;
+    top: 10px;
     right: 20px;
     cursor: pointer;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
+}
+
+.delete {
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    background-color: tomato;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 2px;
+    color: white;
+}
+
+#searchText {
+    position: absolute;
+    top: 100px;
+    left: 200px;
+
+    height: 40.32px;
+}
+
+#searchBtn {
+    width: fit-content;
+    display: inline-block;
+    background-color: cadetblue;
+    position: absolute;
+    top: 100px;
+    left: 380px;
+
+    height: 40.32px;
+    padding: 14px;
+    color: white;
+    cursor: pointer;
+}
+
+#watchlist-title, #seen-title {
+    text-align: center;
+    font-size: 2em;
+    font-family: Bungee;
+}
+
+.popcorn {
     transform: rotate(0deg);
     animation: popWiggle;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-iteration-count: infinite;
 }
+
+.kernel {
+    transform: rotate(-40deg);
+    animation: kernWiggle;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
 
 @keyframes popWiggle {
     50% {
@@ -78,6 +144,15 @@
     }
     100% {
         transform: rotate(0deg);
+    }
+}
+
+@keyframes kernWiggle {
+    50% {
+        transform: rotate(-50deg);
+    }
+    100% {
+        transform: rotate(-40deg);
     }
 }
 

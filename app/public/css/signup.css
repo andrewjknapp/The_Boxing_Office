@@ -7,6 +7,7 @@
     background-position: bottom;
     background-size: cover;
     background-color: blanchedalmond;
+    background-attachment: fixed;
     width: 100vw;
     height: 100vh;
 }

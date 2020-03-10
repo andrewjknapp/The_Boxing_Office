@@ -149,11 +149,19 @@ function populateReviewList(arr) {
     $('#found-reviews').empty();
 
     for(let i = 0; i < arr.length; i++) {
+
+        let pop = '';
+        for(let i = 0; i < arr[i].user_rating; i++) {
+            pop += '🍿';
+        }
+
+
         let currentReview = 
         `
         <article class="review" reviewID="${arr[i].id}">
         <p>${arr[i].review_title} | </p>
-        <p>${arr[i].movie_name}</p>
+        <p>${arr[i].movie_name} | </p>
+        <p>Rating: ${pop}</p>
         <p class="user">${arr[i].user_name}</p>
         </article>
         `

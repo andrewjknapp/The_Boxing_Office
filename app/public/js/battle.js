@@ -246,12 +246,13 @@ const watchlist1 = [
 
 function populateWatchlist(watchlist) {
     $('#watchlist').html("")
+    console.log("there");
     for(let i = 0; i < watchlist.length; i++) {
         let currentMovie = 
         `
         <article class="movie_watchlist" 
-        imdbid=${watchlist[i].imdbID}
-        style="background-image: url('${watchlist[i].Poster}');">
+        imdbid=${watchlist[i].movieid}
+        style="background-image: url('${watchlist[i].poster}');">
         </article>
 
         `;
@@ -260,7 +261,17 @@ function populateWatchlist(watchlist) {
     }
 }
 
-populateWatchlist(watchlist1);
+function displayMovies() {
+
+    $.get("/api/watchlist")
+        .then(function (result) {
+            console.log(result);
+        populateWatchlist(result);
+        });
+}
+
+//populateWatchlist(watchlist1);
+displayMovies();
 
 $('#searchBtn').on('click', async function(event) {
     let search = $('#searchText').val();

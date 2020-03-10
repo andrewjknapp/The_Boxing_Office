@@ -40,8 +40,27 @@ $(document).ready(function() {
           <h6>${data.Actors}</h6>
           <p>${data.Plot}</p>
           <h6><span class="${scoreColor}">${data.Metascore}</span>Metascore</h6>
+          <div class="add-btn" imdbid="${data.imdbID}" poster="${data.Poster}">Add to Watchlist</div>
         </div>
       </div>
     `);
   }
+
+  $('#background').on('click', function(event) {
+    if(event.target.classList.contains('add-btn')) {
+
+      let Poster = event.target.getAttribute('poster');
+      let imdbID = event.target.getAttribute('imdbid');
+      let movieObj = {
+        movieid: imdbID,
+        poster: Poster
+    }
+
+    console.log(movieObj);
+    
+    $.post("/api/watchlist", movieObj)
+    }
+  })
+
 });
+

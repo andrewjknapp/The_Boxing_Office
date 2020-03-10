@@ -10,13 +10,14 @@ $(document).ready(function () {
     displayMovies();
 
     $(document.body).on('click', '.delete', function (event) {
-        $(this).parent().parent().remove();
+        $(this).parent().remove();
         let imdbID = event.target.getAttribute('id');
         $.ajax({
             method: "DELETE",
             url: "/api/watchlist/" + imdbID,
             success: function() {
-                displayMovies();
+                //displayMovies();
+                //location.reload();
             }
         })
     });
@@ -55,18 +56,19 @@ function movieSearch(searchString) {
 };
 
 function addToWatchlist(response) {
+    console.log(response);
     if (response !== null) {
 
         console.log(response);
         let { Poster, Title, Year, Plot, imdbID } = response;
 
         let currentMovie =
-            `<section class='watchlistInfo'>
-            <div class="poster" style="background-image: url(${Poster});"></div>
-            <div class="title"><h3>${Title}  (${Year})</h3></div>
-            <div class="plot">${Plot}</div>
-            <div class="watched" style="background-image: url(assets/Popcorn.png);"></div>
-            <div class="delete"> <button id=${imdbID} class="delete">Delete</button> </div>
+            `<section class='watchlistInfo' movieid=${imdbID}>
+                <div class="poster" style="background-image: url(${Poster});"></div>
+                <div class="title">${Title}  (${Year})</div>
+                <div class="plot">${Plot}</div>
+                <div class="watched kernel" style="background-image: url(assets/corn-kernel.png);"></div>
+                <div class="delete" id=${imdbID}>Delete</div>
             </section>`;
 
         $('#toWatch').prepend(currentMovie);
@@ -82,28 +84,36 @@ function displayMovies() {
         for (i = 0; i < result.length; i++) {
             let movieID = result[i].movieid;
             let is_watched = result[i].is_watched;
+            console.log(is_watched);
             let queryURL = `https://omdbapi.com/?apikey=trilogy&i=${movieID}`;
             $.ajax({
                 url: queryURL
             }).then(function (response) {
-                if (response !== null) {
+                if (response !== null || response !== undefined) {
 
                     let { Poster, Title, Year, Plot, imdbID } = response;
         
                     let currentMovie =
-                        `<section class='watchlistInfo' movieid=${imdbID}>
-                    <div class="poster" style="background-image: url(${Poster});"></div>
-                    <div class="title"><h3>${Title}  (${Year})</h3></div>
-                    <div class="plot">${Plot}</div>
-                    <div class="watched" style="background-image: url(assets/Popcorn.png);"></div>
-                    <div class="delete"> <button id=${imdbID} class="delete">Delete</button> </div>
+                    `<section class='watchlistInfo' movieid=${imdbID}>
+                        <div class="poster" style="background-image: url(${Poster});"></div>
+                        <div class="title">${Title}  (${Year})</div>
+                        <div class="plot">${Plot}</div>`;
+                        if(is_watched) {
+                            currentMovie += `<div class="watched popcorn" style="background-image: url(assets/Popcorn.png);"`
+                        } else {
+                            currentMovie += `<div class="watched kernel" style="background-image: url(assets/corn-kernel.png);"`               
+                         }
+                        currentMovie += `></div>
+                        <div class="delete" id=${imdbID}>Delete</div>
                     </section>`;
 
+                    //<button id=${imdbID} class="delete"></button>
                     if(!is_watched) {
                         $('#toWatch').prepend(currentMovie);
                     } else {
                         $('#seen').prepend(currentMovie);
                     }
+                    console.log(is_watched);
                 } 
             });
         }
