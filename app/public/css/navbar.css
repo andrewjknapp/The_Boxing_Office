@@ -1,4 +1,4 @@
-.navbar ul {
+.navbar {
     position: fixed;
     top: 0;
     width: 100%;
@@ -8,14 +8,26 @@
     overflow: hidden;
     background-color: #333333;
   }
+
+  .navbar ul {
+    margin: 20px;
+    list-style-type: none;
+  }
+
   .navbar li {
-    float: left;
+    text-align: end;
+    float: right;
   }
   
   .navbar li a {
     display: block;
     color: #ffffff;
-    text-align: center;
+    font-family: helvetica;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: end;
+    float: right;
+    height: auto;
     padding: 14px 16px;
     text-decoration: none;
   }
@@ -28,4 +40,17 @@
     background-color: #5d6172;
     margin-left: 40px;
   }
+  .active:hover {
+    background-color: black;
+  }
+
+  nav .brand-logo { 
+    font-size: 2rem; 
+    float: left;
+  }  
+  .navbar .brand-logo { 
+    font-size: 2rem;
+    float: left;
+    text-align: left;
+  }  
   
