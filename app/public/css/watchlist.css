@@ -27,6 +27,11 @@
     padding: 10px;
 }
 
+#searchText {
+    max-height: 30px;
+    border-radius: 5px;
+}
+
 .watchlistInfo {
     margin-bottom: 10px;
     width: 100%;

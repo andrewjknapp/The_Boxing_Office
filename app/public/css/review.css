@@ -13,22 +13,34 @@ body {
 }  
 
 header {
-    background-color: rgba(70, 131, 180, 0.829);
+    font-family: bungee;
+    background-color: #530c176f;
     text-align: center;
-    color: white;
+    color: #dea23b;
     padding: 10px;
+    margin-bottom: 0px;
+}
+
+.row {
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 main {
-    background-color: rgba(137, 145, 139, 0.658);
-    margin: 20px;
+    background-color: #530c176f;
+    padding: 10px;
+    margin-top: 0px;
 }
 
+#movie-search {
+    max-height: 30px;
+    border-radius: 5px;
+}  
 
 #review-search {
-    background-color: rgba(70, 131, 180, 0.829);
     padding: 5px;
 }
+
 form, form > * {
     display: inline-block;
 }
@@ -117,6 +129,17 @@ form, form > * {
     resize: none;
     height: 80%;
     padding: 20px;
+}
+
+#search-text {
+    max-height: 30px;
+    width: 300px;
+    border-radius: 5px;
+}
+#searchBy {
+    max-height: 30px;
+    width: 300px;
+    border-radius: 5px;
 }
 
 #submit-new-review {

@@ -48,5 +48,7 @@
     height: 80px;
     line-height: 80px;
   }
-  
-  
+
+  nav .brand-logo { 
+    font-size: 2rem; 
+  }

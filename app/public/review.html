@@ -1,81 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/review.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="./css/materialize.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="./css/review.css"/>
+    <link type="text/css" rel="stylesheet" href="./css/navbar.css"/>
+    <link rel="shortcut icon" href="./assets/boxing-office-favicon.png" type="image/x-icon">
+    <link rel="icon" href="./assets/boxing-office-favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="./js/materialize.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <title>The Boxing Office</title>
 </head>
 <body>
-    <header>
-        <h1>Reviews</h1>
-    </header>
-    <main>
-        <div id="review-search">
-            <div id="make-review">Make Movie Review</div>
-            <form>
-                <label for="reviewSearch">Search for Review</label>
-                <input type="text" name="reviewSearch" id="search-text">
-                
-                <select id="searchBy">
-                    <option value="all">All</option>
-                    <option value="movie">Movie</option>
-                    <option value="user">User</option>
-                </select>
-                <input type="submit" id="submitBtn" value="Search">
-            </form>
-        </div>
-        
-        <div id="reviews">
-            <article class="review">
-                <p>Title | </p>
-                <p>Movie</p>
-                <p class="user">User</p>
-            </article>
-            <div id="found-reviews"></div>
-        </div>
-        
-
-        <div id="new-modal" class="modal hide">
-            <div id="new-review">
-                <div id="review-movie-chooser">
-                    <h2>Search Movie to Review:</h2>
-                    <input id="movie-search" class="block">
-                    <button id="movieSearchBtn" class="block">Search</button>
-                    <div id="movie-check" class="hide">
-                        <div id="poster"></div>
-                        <div id="new-confirm">Review this Movie</div>
-                    </div>
-                </div>
-                <div id="review-editor" class="hide">
-                    <input type="text" id="review-title" placeholder="Review Title">
-                    <textarea id="review-text" placeholder="Share your thoughts"></textarea>
-                    <div id="submit-new-review">Submit Review</div>
-                    <div id="movie-name" movie_name=""></div>
-                </div>
-            </div>
-        </div>
-
-        <div id="view-review-modal" class="modal hide">
-            <div id="view-review">
-                <p>Review of <span id="prev-movie-title"></span><p>
-                <p id="prev-user"></p>
-                <h2 id="prev-review-title">Title</h2>
-                <p id="prev-review-text">Text</p>
-            </div>
-        </div>
-    </main>
-    <div class="navbar">
-        <ul>
-            <li><a href="search.html">Movie Search</a></li>
+    <nav>
+        <div class="nav-wrapper blue-grey darken-2">
+          <a href="#" class="brand-logo">
+            <img src="assets/boxing-office-logo.png" style="width: auto; height: 80px;"/>
+          </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="battle.html">Boxing Office</a></li>
             <li><a href="watchlist.html">Watchlist</a></li>
             <li><a href= "review.html">Reviews</a></li>
+            <li><input id="movie-search" class="btn input-field amber lighten-5" placeholder="Movie Search"></input></li>
+            <li><i id="movie-submit" type="submit" class="material-icons">search</i></li>
             <li style="float:right"><a class="active" href="/logout">Logout</a></li>
           </ul>
-    </div>
+        </div>
+      </nav>
+  
+   <div class="container">
+        <header class="row">
+            <h1>Reviews</h1>
+        </header>
+        <main class="row">
+            <div id="review-search">
+                <div id="make-review">Make a Movie Review</div>
+                <form>
+                    <input type="text" name="reviewSearch" id="search-text" class="btn input-field amber lighten-5" placeholder="Search for a Movie Review">
+                    <select id="searchBy">
+                        <option value="all">All</option>
+                        <option value="movie">Movie</option>
+                        <option value="user">User</option>
+                    </select>
+                    <i id="submitBtn" type="submit" class="material-icons amber lighten-5"  value="Search">search</i>
+                </form>
+            </div>
+            
+            <div id="reviews">
+                <article class="review">
+                    <p>Title | </p>
+                    <p>Movie</p>
+                    <p class="user">User</p>
+                </article>
+                <div id="found-reviews"></div>
+            </div>
+            
+       
+            <div id="new-modal" class="modal hide">
+                <div id="new-review">
+                    <div id="review-movie-chooser">
+                        <h2>Search Movie to Review:</h2>
+                        <input id="movie-search" class="block">
+                        <button id="movieSearchBtn" class="block">Search</button>
+                        <div id="movie-check" class="hide">
+                            <div id="poster"></div>
+                            <div id="new-confirm">Review this Movie</div>
+                        </div>
+                    </div>
+                    <div id="review-editor" class="hide">
+                        <input type="text" id="review-title" placeholder="Review Title">
+                        <textarea id="review-text" placeholder="Share your thoughts"></textarea>
+                        <div id="submit-new-review">Submit Review</div>
+                        <div id="movie-name" movie_name=""></div>
+                    </div>
+                </div>
+            </div>
+       
+            <div id="view-review-modal" class="modal hide">
+                <div id="view-review">
+                    <p>Review of <span id="prev-movie-title"></span><p>
+                    <p id="prev-user"></p>
+                    <h2 id="prev-review-title">Title</h2>
+                    <p id="prev-review-text">Text</p>
+                </div>
+            </div>
+        </main>
+   </div>
+
     <script src="./js/review.js"></script>
 </body>
 </html>
