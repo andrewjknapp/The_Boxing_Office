@@ -48,6 +48,8 @@ $(document).ready(function() {
 
   $('#background').on('click', function(event) {
     if(event.target.classList.contains('add-btn')) {
+      
+      alert("Movie added to Watchlist!");
 
       let Poster = event.target.getAttribute('poster');
       let imdbID = event.target.getAttribute('imdbid');
