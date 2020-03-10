@@ -166,13 +166,14 @@ function populateReviewList(arr) {
 function resetReviewModal() {
     $('#new-modal').addClass('hide');
     $('#review-movie-chooser').removeClass('hide');
+    $('#review-editor').addClass('hide');
     $('#user-rating').addClass('hide');
     $('#review-title').val('');
     $('#review-text').val('');
 }
 
 function movieSearch(searchString) {
-    let queryURL = `http://omdbapi.com/?apikey=trilogy&t=${searchString}`;
+    let queryURL = `https://omdbapi.com/?apikey=trilogy&t=${searchString}`;
 
     return new Promise((resolve, reject) => {
         $.ajax({
