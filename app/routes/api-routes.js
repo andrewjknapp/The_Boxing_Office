@@ -163,14 +163,13 @@ module.exports = function(app) {
         let watchUpdate = {
             is_watched: true
         }
-        console.log(req.user.id);
         models.Watchlist.update(watchUpdate, {
             where: {
                 movieid: req.params.id,
                 userid: req.user.id
             }
         }).then(function(result) {
-            console.log(result)
+            res.send(200);
         })
     })
 
