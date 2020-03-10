@@ -61,6 +61,18 @@ nav .button-collapse i {
   margin-right: 5px;
 }
 
+.add-btn {
+  cursor: pointer;
+  width: fit-content;
+  background-color: tomato;
+  color: white;
+  padding: 2px;
+  position: relative;
+  top: -20px;
+  right: -100px;
+  border-radius: 5px;
+}
+
 @media only screen and (min-width: 601px){
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
       height: 80px;
