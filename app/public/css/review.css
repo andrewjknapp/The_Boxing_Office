@@ -24,7 +24,6 @@ main {
     margin: 20px;
 }
 
-
 #review-search {
     background-color: rgba(70, 131, 180, 0.829);
     padding: 5px;
@@ -133,6 +132,19 @@ form, form > * {
     display: none;
 }
 
+#movie-submit {
+cursor: pointer;
+}
+
+.movie-info {
+padding: 10px;
+}
+
+#movie-search {
+max-height: 30px;
+border-radius: 5px;
+}
+  
 #reviews {
     padding: 10px;
 }

@@ -61,10 +61,6 @@ nav .button-collapse i {
   margin-right: 5px;
 }
 
-nav .brand-logo { 
-  font-size: 2rem; 
-}
-
 @media only screen and (min-width: 601px){
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
       height: 80px;
