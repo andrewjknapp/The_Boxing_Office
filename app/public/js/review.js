@@ -95,7 +95,13 @@ $(document).ready(function() {
                 $('#prev-user').text(response.user_name);
                 $('#prev-review-title').text(response.review_title);
                 $('#prev-review-text').text(response.review_text);
-                $('#prev-rating').text(`Rating: ${response.user_rating}`);
+                let pop = '';
+                let num = parseInt(response.user_rating);
+                console.log(num);
+                for(let i = 0; i < num; i++) {
+                    pop += '🍿';
+                }
+                $('#prev-rating').text(`${pop}`);
             })
             $('#view-review-modal').removeClass('hide');
         } else if (event.target.matches('p')) {
@@ -106,7 +112,14 @@ $(document).ready(function() {
                 $('#prev-user').text(response.user_name);
                 $('#prev-review-title').text(response.review_title);
                 $('#prev-review-text').text(response.review_text);
-                $('#prev-rating').text(`Rating: ${response.user_rating}`);
+
+                let pop = '';
+                let num = parseInt(response.user_rating);
+                console.log(num);
+                for(let i = 0; i < num; i++) {
+                    pop += '🍿';
+                }
+                $('#prev-rating').text(`${pop}`);
             })
             $('#view-review-modal').removeClass('hide');
         }
@@ -149,9 +162,11 @@ function populateReviewList(arr) {
     $('#found-reviews').empty();
 
     for(let i = 0; i < arr.length; i++) {
-
+        
         let pop = '';
-        for(let i = 0; i < arr[i].user_rating; i++) {
+        let num = parseInt(arr[i].user_rating);
+        console.log(num);
+        for(let i = 0; i < num; i++) {
             pop += '🍿';
         }
 
