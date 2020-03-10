@@ -14,32 +14,18 @@
 
 <body id="background">
     
-    <!-- SEARCH -->
-    <h4>Search</h4>
-    <input id="searchText" type="text">
-    <button id="searchBtn">Search</button>
+
     <div id ='list'>
+        <h2 id="watchlist-title">Watchlist:</h2>
         <div id="toWatch">
-            <section class='watchlistInfo'>
+            <!-- <section class='watchlistInfo'>
                 <div class="poster" style="background-image: url(assets/LOTR.jpg);"></div>
                 <div class="title"><h3>The Fellowhship of the Ring</h3></div>
                 <div class="plot">These people did some things</div>
                 <div class="watched" style="background-image: url(assets/Popcorn.png);"></div>
-            </section>
-            <section class='watchlistInfo'>
-                <div class="poster" style="background-image: url(assets/LOTR.jpg);"></div>
-                <div class="title"><h3>The Fellowhship of the Ring</h3></div>
-                <div class="plot">These people did some things</div>
-                <div class="watched" style="background-image: url(assets/Popcorn.png);"></div>
-            </section>
-            <section class='watchlistInfo'>
-                <div class="poster" style="background-image: url(assets/LOTR.jpg);"></div>
-                <div class="title"><h3>The Fellowhship of the Ring</h3></div>
-                <div class="plot">These people did some things</div>
-                <div class="watched" style="background-image: url(assets/Popcorn.png);"></div>
-            </section>
+            </section> -->
         </div>
-        <h2>Seen:</h2>
+        <h2 id="seen-title">Seen:</h2>
         <div id="seen">
             <section class='watchlistInfo'>
                 <div class="poster" style="background-image: url(assets/Blade_Runner.jpg);"></div>
@@ -55,6 +41,8 @@
             <li><a href="battle.html">Boxing Office</a></li>
             <li><a href="watchlist.html">Watchlist</a></li>
             <li><a href= "review.html">Reviews</a></li>
+            <input id="searchText" autocomplete="off" type="text">
+            <div id="searchBtn">Search</div>
             <li style="float:right"><a class="active" href="/logout">Logout</a></li>
           </ul>
     </div>

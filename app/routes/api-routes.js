@@ -193,6 +193,7 @@ module.exports = function(app) {
                     userid: req.user.id
                 }
             }).then(function(result) {
+              res.send(200);
             })
         }
     })
