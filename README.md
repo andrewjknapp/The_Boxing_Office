@@ -1,10 +1,10 @@
 # The Boxing Office
 
-Created by:
-    Andrew Knapp - andrewjknapp
-    Greg Plumblee - gplumblee
-    Ariel Khawly - arielkhawly
-    Joel Spielberger - jspielberger
+> - Created by: 
+> -   `Andrew Knapp - andrewjknapp`
+> -   `Greg Plumblee - gplumblee`
+> -   `Ariel Khawly - arielkhawly`
+> -   `Joel Spielberger - jspielberger`
 
 ## Link to Live Project
 
