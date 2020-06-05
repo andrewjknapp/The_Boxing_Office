@@ -4,6 +4,7 @@
 }
 body {
     background-image: url(../assets/index.jpg);
+    overflow-x: hidden;
     background-position: bottom;
     background-size: cover;
     background-color: blanchedalmond;
